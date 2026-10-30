@@ -4,8 +4,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
-  Award,
-  Maximize2
+  Award
 } from 'lucide-react';
 import {
   LoginCarouselConfig,
@@ -15,6 +14,11 @@ import {
   CarouselTransitionStyle,
   getCarouselAnimationVariants
 } from '../../lib/carouselTransitions';
+import {
+  isImageFullyPreloaded,
+  preloadCarouselImage,
+  preloadAllCarouselScenes
+} from '../../lib/carouselImagePreloader';
 
 interface CarouselShowcaseProps {
   config?: LoginCarouselConfig;
@@ -47,6 +51,16 @@ export default function CarouselShowcase({
   const [isHovered, setIsHovered] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
+  // Buffer state: keep track of displayed scene vs requested scene
+  // This guarantees the current image stays 100% visible until the next image is fully loaded & decoded
+  const [displayedIndex, setDisplayedIndex] = useState<number>(activeSceneIndex);
+  const previousSettledSceneRef = useRef<CarouselSceneItem>(scenes[activeSceneIndex] || scenes[0]);
+
+  // Eagerly preload and warm all carousel scenes immediately on mount
+  useEffect(() => {
+    preloadAllCarouselScenes(scenes);
+  }, [scenes]);
+
   // Check prefers-reduced-motion media query
   useEffect(() => {
     if (typeof window !== 'undefined' && window.matchMedia) {
@@ -57,6 +71,38 @@ export default function CarouselShowcase({
       return () => mediaQuery.removeEventListener('change', listener);
     }
   }, []);
+
+  // When activeSceneIndex changes, verify image is loaded before switching display
+  useEffect(() => {
+    const targetScene = scenes[activeSceneIndex] || scenes[0];
+    if (!targetScene) return;
+
+    if (isImageFullyPreloaded(targetScene.image)) {
+      setDisplayedIndex(activeSceneIndex);
+      previousSettledSceneRef.current = targetScene;
+    } else {
+      // Keep current scene visible, preload next image in background
+      let isCancelled = false;
+      preloadCarouselImage(targetScene.image).then(() => {
+        if (!isCancelled) {
+          setDisplayedIndex(activeSceneIndex);
+          previousSettledSceneRef.current = targetScene;
+        }
+      });
+      return () => {
+        isCancelled = true;
+      };
+    }
+  }, [activeSceneIndex, scenes]);
+
+  // Proactively warm adjacent next & previous slides in the background
+  useEffect(() => {
+    if (!scenes || scenes.length <= 1) return;
+    const nextIdx = (displayedIndex + 1) % scenes.length;
+    const prevIdx = (displayedIndex - 1 + scenes.length) % scenes.length;
+    preloadCarouselImage(scenes[nextIdx].image);
+    preloadCarouselImage(scenes[prevIdx].image);
+  }, [displayedIndex, scenes]);
 
   // Autoplay management
   useEffect(() => {
@@ -85,7 +131,8 @@ export default function CarouselShowcase({
     setActiveSceneIndex
   ]);
 
-  const currentScene = scenes[activeSceneIndex] || scenes[0];
+  const currentScene = scenes[displayedIndex] || scenes[0];
+  const baseScene = previousSettledSceneRef.current || currentScene;
   const hasErr = imageError[currentScene.id];
 
   const [navDirection, setNavDirection] = useState<'left' | 'right'>(
@@ -128,32 +175,82 @@ export default function CarouselShowcase({
       className={`relative w-full rounded-3xl overflow-hidden border-2 border-amber-300/80 shadow-[0_25px_60px_-15px_rgba(180,120,40,0.22)] bg-stone-900 group select-none ${aspectClassName} ${className}`}
       style={is3DStyle ? { perspective: '1200px', transformStyle: 'preserve-3d' } : undefined}
     >
-      <AnimatePresence mode="wait">
+      {/* 
+        Persistent Underlying Buffer Layer:
+        Renders the settled scene continuously in the background so there is NEVER
+        a black flash, dark gap, or empty card during exit animations or transitions.
+      */}
+      <div 
+        className="absolute inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden" 
+        aria-hidden="true"
+      >
+        {baseScene && !imageError[baseScene.id] && (
+          <img
+            src={baseScene.image}
+            alt=""
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
+            className="w-full h-full object-cover object-center brightness-[1.15] contrast-[1.06] saturate-[1.08]"
+            style={{ 
+              filter: 'brightness(1.15) contrast(1.06) saturate(1.08)',
+              transform: 'translateZ(0)'
+            }}
+          />
+        )}
+      </div>
+
+      {/* 
+        Active Motion Carousel Layer:
+        Uses concurrent transition (mode="popLayout", initial={false})
+        to crossfade or translate slides seamlessly without an unmounted empty black interval.
+      */}
+      <AnimatePresence mode="popLayout" initial={false}>
         <motion.div
           key={`${currentScene.id}_${config.transition_style}`}
           initial={variants.initial}
           animate={variants.animate}
           exit={variants.exit}
           transition={variants.transition}
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full z-10"
           style={is3DStyle ? { 
             transformStyle: 'preserve-3d', 
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
             willChange: 'transform, opacity'
-          } : undefined}
+          } : {
+            willChange: 'transform, opacity'
+          }}
         >
-          {/* Main Visual Image Layer - Bright, Clear, Vibrant */}
+          {/* Main Visual Image Layer - Bright, Clear, Vibrant & Instant */}
           {!hasErr ? (
             <img
               src={currentScene.image}
               alt={currentScene.titleEn}
-              onError={() => setImageError((prev) => ({ ...prev, [currentScene.id]: true }))}
+              loading="eager"
+              decoding="sync"
+              fetchPriority="high"
+              onError={() => {
+                // If local bundle fails, attempt fallbackUrl before showing error fallback
+                if (currentScene.fallbackUrl && currentScene.fallbackUrl !== currentScene.image) {
+                  const fallbackImg = new Image();
+                  fallbackImg.onload = () => {
+                    // Fallback succeeded
+                  };
+                  fallbackImg.onerror = () => {
+                    setImageError((prev) => ({ ...prev, [currentScene.id]: true }));
+                  };
+                  fallbackImg.src = currentScene.fallbackUrl;
+                } else {
+                  setImageError((prev) => ({ ...prev, [currentScene.id]: true }));
+                }
+              }}
               className="w-full h-full object-cover object-center brightness-[1.15] contrast-[1.06] saturate-[1.08] transition-transform duration-700 ease-out"
               style={{ 
                 filter: 'brightness(1.15) contrast(1.06) saturate(1.08)',
                 backfaceVisibility: 'hidden',
-                WebkitBackfaceVisibility: 'hidden'
+                WebkitBackfaceVisibility: 'hidden',
+                transform: 'translateZ(0)'
               }}
             />
           ) : (
@@ -181,7 +278,7 @@ export default function CarouselShowcase({
               </span>
 
               <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-stone-950/60 border border-amber-400/40 text-[11px] sm:text-xs font-mono font-bold text-amber-300 backdrop-blur-md shadow-sm">
-                <span>{activeSceneIndex + 1}</span>
+                <span>{displayedIndex + 1}</span>
                 <span className="text-stone-400">/</span>
                 <span className="text-stone-300">{scenes.length}</span>
               </div>
@@ -206,7 +303,7 @@ export default function CarouselShowcase({
                     type="button"
                     onClick={() => setActiveSceneIndex(idx)}
                     className={`h-1 rounded-full transition-all duration-300 cursor-pointer ${
-                      activeSceneIndex === idx
+                      displayedIndex === idx
                         ? 'w-3.5 sm:w-4 bg-amber-400 shadow-xs shadow-amber-400/60 ring-1 ring-black/20'
                         : 'w-1 bg-white/70 hover:bg-white'
                     }`}

@@ -129,8 +129,8 @@ export const DEFAULT_CAROUSEL_CONFIG: LoginCarouselConfig = {
   id: 'a0000000-0000-0000-0000-000000000001',
   scope_type: 'ALL_APPS',
   app_ids: ['all'],
-  transition_style: CarouselTransitionStyle.FLIP,
-  transition_duration: 700,
+  transition_style: CarouselTransitionStyle.FADE,
+  transition_duration: 600,
   speed_preset: 'normal',
   autoplay_enabled: true,
   autoplay_interval: 4500,
@@ -242,17 +242,17 @@ export function resolveCarouselConfig(
   );
   if (customGlobalConfig) return customGlobalConfig;
 
-  // Baseline default in active list with FLIP
+  // Baseline default in active list with FADE
   const baselineConfig = activeConfigs.find(c => c.id === DEFAULT_CAROUSEL_CONFIG.id);
   if (baselineConfig) {
     return {
       ...DEFAULT_CAROUSEL_CONFIG,
       ...baselineConfig,
-      transition_style: baselineConfig.transition_style || CarouselTransitionStyle.FLIP
+      transition_style: baselineConfig.transition_style || CarouselTransitionStyle.FADE
     };
   }
 
-  // 4. Application default configuration (Automatic FLIP)
+  // 4. Application default configuration (Automatic FADE)
   return DEFAULT_CAROUSEL_CONFIG;
 }
 
@@ -435,3 +435,10 @@ export function getCarouselAnimationVariants(
       };
   }
 }
+
+// Re-export high-performance image preloader utilities
+export {
+  isImageFullyPreloaded,
+  preloadCarouselImage,
+  preloadAllCarouselScenes
+} from './carouselImagePreloader';

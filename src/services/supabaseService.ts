@@ -557,7 +557,7 @@ export async function fetchLoginCarouselConfigsFromSupabase(): Promise<LoginCaro
   if (!localList || localList.length === 0) {
     localList = [DEFAULT_CAROUSEL_CONFIG];
   } else {
-    // Ensure the baseline default item uses FLIP
+    // Ensure the baseline default item uses FADE
     const defIdx = localList.findIndex(c => c.id === DEFAULT_CAROUSEL_CONFIG.id);
     if (defIdx >= 0) {
       localList[defIdx] = {

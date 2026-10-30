@@ -92,6 +92,7 @@ import { listenForWebOtp, sendOtpApi, verifyOtpApi } from '../services/otpServic
 import { syncUserProfileToSupabase, getResolvedCarouselConfig, fetchLoginCarouselConfigsFromSupabase } from '../services/supabaseService';
 import CarouselShowcase from './carousel/CarouselShowcase';
 import { LoginCarouselConfig, DEFAULT_CAROUSEL_CONFIG } from '../lib/carouselTransitions';
+import { preloadAllCarouselScenes } from '../lib/carouselImagePreloader';
 
 declare global {
   interface Window {
@@ -171,6 +172,11 @@ export default function LoginScreen({ activeApp, onLoginSuccess, onOpenLegal }: 
       window.removeEventListener('aspirant_carousel_config_deleted', syncConfig);
     };
   }, [activeApp?.id]);
+
+  // Warm and decode all carousel images into memory cache immediately on mount
+  useEffect(() => {
+    preloadAllCarouselScenes();
+  }, []);
 
   // Dedicated 60-Second Resend Countdown Manager
   const startCountdown = (seconds = 60) => {

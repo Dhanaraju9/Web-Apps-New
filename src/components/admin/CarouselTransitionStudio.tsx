@@ -72,8 +72,8 @@ export default function CarouselTransitionStudio({
   const [editingConfigId, setEditingConfigId] = useState<string | null>(null);
   const [scopeType, setScopeType] = useState<CarouselScopeType>('ALL_APPS');
   const [selectedTargetAppIds, setSelectedTargetAppIds] = useState<string[]>(['all']);
-  const [transitionStyle, setTransitionStyle] = useState<CarouselTransitionStyle>(CarouselTransitionStyle.FLIP);
-  const [transitionDuration, setTransitionDuration] = useState<number>(700);
+  const [transitionStyle, setTransitionStyle] = useState<CarouselTransitionStyle>(CarouselTransitionStyle.FADE);
+  const [transitionDuration, setTransitionDuration] = useState<number>(600);
   const [speedPreset, setSpeedPreset] = useState<CarouselSpeedPreset>('normal');
   const [autoplayEnabled, setAutoplayEnabled] = useState<boolean>(true);
   const [autoplayInterval, setAutoplayInterval] = useState<number>(4500);
@@ -260,8 +260,8 @@ export default function CarouselTransitionStudio({
     setEditingConfigId(null);
     setScopeType('ALL_APPS');
     setSelectedTargetAppIds(['all']);
-    setTransitionStyle(CarouselTransitionStyle.FLIP);
-    setTransitionDuration(700);
+    setTransitionStyle(CarouselTransitionStyle.FADE);
+    setTransitionDuration(600);
     setSpeedPreset('normal');
     setAutoplayEnabled(true);
     setAutoplayInterval(4500);
