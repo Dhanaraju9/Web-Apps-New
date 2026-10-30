@@ -539,3 +539,203 @@ export async function fetchAuditLogsFromSupabase() {
   }
 }
 
+// ---------------------------------------------------------------------------
+// 11. Login Carousel Transitions Configuration Management
+// ---------------------------------------------------------------------------
+import { LoginCarouselConfig, DEFAULT_CAROUSEL_CONFIG, resolveCarouselConfig } from '../lib/carouselTransitions';
+
+const CAROUSEL_CONFIGS_STORAGE_KEY = 'aspirant_carousel_configs';
+
+export async function fetchLoginCarouselConfigsFromSupabase(): Promise<LoginCarouselConfig[]> {
+  const cached = localStorage.getItem(CAROUSEL_CONFIGS_STORAGE_KEY);
+  let localList: LoginCarouselConfig[] = [];
+  if (cached) {
+    try {
+      localList = JSON.parse(cached);
+    } catch (e) {}
+  }
+  if (!localList || localList.length === 0) {
+    localList = [DEFAULT_CAROUSEL_CONFIG];
+  } else {
+    // Ensure the baseline default item uses FLIP
+    const defIdx = localList.findIndex(c => c.id === DEFAULT_CAROUSEL_CONFIG.id);
+    if (defIdx >= 0) {
+      localList[defIdx] = {
+        ...localList[defIdx],
+        transition_style: DEFAULT_CAROUSEL_CONFIG.transition_style,
+        transition_duration: DEFAULT_CAROUSEL_CONFIG.transition_duration
+      };
+    }
+  }
+
+  if (!isSupabaseConfigured) {
+    return localList;
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from('login_carousel_configs')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error || !data || data.length === 0) {
+      return localList;
+    }
+
+    const formatted: LoginCarouselConfig[] = data.map((row: any) => ({
+      id: row.id,
+      scope_type: row.scope_type,
+      app_ids: Array.isArray(row.app_ids) ? row.app_ids : (typeof row.app_ids === 'string' ? JSON.parse(row.app_ids) : []),
+      transition_style: row.transition_style,
+      transition_duration: Number(row.transition_duration) || 600,
+      speed_preset: row.speed_preset || 'normal',
+      autoplay_enabled: Boolean(row.autoplay_enabled),
+      autoplay_interval: Number(row.autoplay_interval) || 4500,
+      transition_direction: row.transition_direction || 'left',
+      infinite_loop: row.infinite_loop !== false,
+      pause_on_interaction: row.pause_on_interaction !== false,
+      reduce_motion_support: row.reduce_motion_support !== false,
+      is_active: row.is_active !== false,
+      created_at: row.created_at,
+      updated_at: row.updated_at
+    }));
+
+    localStorage.setItem(CAROUSEL_CONFIGS_STORAGE_KEY, JSON.stringify(formatted));
+    return formatted;
+  } catch (err) {
+    console.warn('Notice querying Supabase carousel configs:', err);
+    return localList;
+  }
+}
+
+function toValidUuid(val?: string): string {
+  if (val && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(val)) {
+    return val;
+  }
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    const r = (Math.random() * 16) | 0;
+    const v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+
+export async function saveLoginCarouselConfigToSupabase(
+  config: LoginCarouselConfig
+): Promise<LoginCarouselConfig> {
+  const id = toValidUuid(config.id);
+  const now = new Date().toISOString();
+
+  const formattedConfig: LoginCarouselConfig = {
+    ...config,
+    id,
+    created_at: config.created_at || now,
+    updated_at: now
+  };
+
+  // Update local storage cache immediately
+  try {
+    const cached = localStorage.getItem(CAROUSEL_CONFIGS_STORAGE_KEY);
+    let list: LoginCarouselConfig[] = cached ? JSON.parse(cached) : [];
+    const existingIdx = list.findIndex(c => c.id === id);
+    if (existingIdx >= 0) {
+      list[existingIdx] = formattedConfig;
+    } else {
+      list.unshift(formattedConfig);
+    }
+    localStorage.setItem(CAROUSEL_CONFIGS_STORAGE_KEY, JSON.stringify(list));
+  } catch (e) {}
+
+  // Dispatch runtime event for instant synchronized updates
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(
+      new CustomEvent('aspirant_carousel_config_updated', { detail: formattedConfig })
+    );
+  }
+
+  if (!isSupabaseConfigured) {
+    return formattedConfig;
+  }
+
+  try {
+    const payload = {
+      id: formattedConfig.id,
+      scope_type: formattedConfig.scope_type,
+      app_ids: formattedConfig.app_ids,
+      transition_style: formattedConfig.transition_style,
+      transition_duration: formattedConfig.transition_duration,
+      autoplay_enabled: formattedConfig.autoplay_enabled,
+      autoplay_interval: formattedConfig.autoplay_interval,
+      transition_direction: formattedConfig.transition_direction,
+      infinite_loop: formattedConfig.infinite_loop,
+      is_active: formattedConfig.is_active,
+      created_at: formattedConfig.created_at,
+      updated_at: formattedConfig.updated_at
+    };
+
+    const { data: _data, error } = await supabase
+      .from('login_carousel_configs')
+      .upsert(payload, { onConflict: 'id' })
+      .select()
+      .single();
+
+    if (error) {
+      console.warn('Notice saving carousel config to Supabase:', error.message);
+      return formattedConfig;
+    }
+
+    return formattedConfig;
+  } catch (err) {
+    console.warn('Exception saving carousel config to Supabase:', err);
+    return formattedConfig;
+  }
+}
+
+export async function deleteLoginCarouselConfigFromSupabase(id: string): Promise<boolean> {
+  // Update local storage
+  try {
+    const cached = localStorage.getItem(CAROUSEL_CONFIGS_STORAGE_KEY);
+    if (cached) {
+      const list: LoginCarouselConfig[] = JSON.parse(cached);
+      const filtered = list.filter(c => c.id !== id);
+      localStorage.setItem(CAROUSEL_CONFIGS_STORAGE_KEY, JSON.stringify(filtered));
+    }
+  } catch (e) {}
+
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(
+      new CustomEvent('aspirant_carousel_config_deleted', { detail: { id } })
+    );
+  }
+
+  if (!isSupabaseConfigured) {
+    return true;
+  }
+
+  try {
+    await supabase.from('login_carousel_configs').delete().eq('id', id);
+    return true;
+  } catch (err) {
+    console.warn('Notice deleting carousel config from Supabase:', err);
+    return true;
+  }
+}
+
+export function getResolvedCarouselConfig(
+  appId: string,
+  configs?: LoginCarouselConfig[]
+): LoginCarouselConfig {
+  let list = configs;
+  if (!list) {
+    const cached = localStorage.getItem(CAROUSEL_CONFIGS_STORAGE_KEY);
+    if (cached) {
+      try {
+        list = JSON.parse(cached);
+      } catch (e) {}
+    }
+  }
+  return resolveCarouselConfig(appId, list || []);
+}
+

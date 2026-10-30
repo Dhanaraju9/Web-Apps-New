@@ -516,8 +516,17 @@ export interface AuditLog {
   adminEmail: string;
   action: string; // e.g. "CREATE_POSTER", "DELETE_MCQ", "PUBLISH_MOCK_TEST"
   targetId: string;
-  targetType: 'poster' | 'coupon' | 'ca' | 'subscription' | 'mcq' | 'app' | 'notification' | 'mock_test';
+  targetType: 'poster' | 'coupon' | 'ca' | 'subscription' | 'mcq' | 'app' | 'notification' | 'mock_test' | 'carousel_config';
   timestamp: string;
   details?: string;
 }
+
+export {
+  CarouselTransitionStyle,
+  type CarouselScopeType,
+  type CarouselTransitionDirection,
+  type CarouselSpeedPreset,
+  type LoginCarouselConfig,
+  type CarouselSceneItem
+} from './lib/carouselTransitions';
 

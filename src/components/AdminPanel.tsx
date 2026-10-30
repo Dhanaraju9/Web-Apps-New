@@ -75,6 +75,7 @@ import { AdminMockTestManager } from './AdminMockTestManager';
 import FileUploadStatusModal from './FileUploadStatusModal';
 import FileDeleteConfirmModal from './FileDeleteConfirmModal';
 import ContentUploadReportModal, { DetailedUploadReport, UploadRecordIssue, SuccessfulRecordSummary } from './ContentUploadReportModal';
+import CarouselTransitionStudio from './admin/CarouselTransitionStudio';
 
 const AppTargetingSelector = ({ 
   apps, 
@@ -225,7 +226,7 @@ export default function AdminPanel({
   const [selectedAppId, setSelectedAppId] = useState<string>(activeApp.id);
   const selectedAdminApp = state.apps.find(a => a.id === selectedAppId) || activeApp;
 
-  const [activeTab, setActiveTab] = useState<'content' | 'syllabus' | 'coupons' | 'subscriptions' | 'posters' | 'notifications' | 'current-affairs' | 'revenue' | 'reports' | 'dashboard' | 'app-settings' | 'mock-tests' | 'app-network' | 'translations' | 'support-settings'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'content' | 'syllabus' | 'coupons' | 'subscriptions' | 'posters' | 'notifications' | 'current-affairs' | 'revenue' | 'reports' | 'dashboard' | 'app-settings' | 'mock-tests' | 'app-network' | 'translations' | 'support-settings' | 'carousel-transitions'>('dashboard');
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
   // Support & Contact Details Admin State
@@ -342,6 +343,7 @@ export default function AdminPanel({
         { id: 'app-network', label: 'App Network Switcher', icon: Globe, adminOnly: true, count: state.apps.length },
         { id: 'translations', label: '22 Languages Localization', icon: FileText, adminOnly: true, count: LANGUAGES.length },
         { id: 'subscriptions', label: 'Subscription Plans', icon: CreditCard, adminOnly: true, count: state.subscriptions.length },
+        { id: 'carousel-transitions', label: 'Login Carousel Studio', icon: Sparkles, adminOnly: true },
         { id: 'support-settings', label: 'Support & Contact Details', icon: HelpCircle, adminOnly: true },
       ]
     }
@@ -7883,6 +7885,16 @@ export default function AdminPanel({
             </div>
           )}
         </div>
+      )}
+
+      {/* TAB 14: LOGIN CAROUSEL TRANSITION STUDIO */}
+      {activeTab === 'carousel-transitions' && (
+        <CarouselTransitionStudio
+          apps={state.apps}
+          currentAdminEmail={adminEmail}
+          selectedAppId={selectedAppId}
+          onSelectApp={setSelectedAppId}
+        />
       )}
 
     {/* Detailed Content Upload Report Modal */}

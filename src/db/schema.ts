@@ -1,5 +1,20 @@
 import { relations } from 'drizzle-orm';
-import { integer, pgTable, serial, text, timestamp, jsonb } from 'drizzle-orm/pg-core';
+import { boolean, integer, pgTable, serial, text, timestamp, jsonb, uuid } from 'drizzle-orm/pg-core';
+
+export const loginCarouselConfigs = pgTable('login_carousel_configs', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  scopeType: text('scope_type').notNull(),
+  appIds: jsonb('app_ids').notNull().default([]),
+  transitionStyle: text('transition_style').notNull(),
+  transitionDuration: integer('transition_duration').notNull().default(600),
+  autoplayEnabled: boolean('autoplay_enabled').notNull().default(true),
+  autoplayInterval: integer('autoplay_interval').notNull().default(4500),
+  transitionDirection: text('transition_direction').notNull().default('left'),
+  infiniteLoop: boolean('infinite_loop').notNull().default(true),
+  isActive: boolean('is_active').notNull().default(true),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
+});
 
 export const users = pgTable('users', {
   id: serial('id').primaryKey(),

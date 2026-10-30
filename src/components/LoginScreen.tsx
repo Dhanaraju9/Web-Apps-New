@@ -89,7 +89,9 @@ import {
 import ApEmblem from './auth/ApEmblem';
 import { sanitizeIndianPhoneNumber } from './auth/PhoneNumberInput';
 import { listenForWebOtp, sendOtpApi, verifyOtpApi } from '../services/otpService';
-import { syncUserProfileToSupabase } from '../services/supabaseService';
+import { syncUserProfileToSupabase, getResolvedCarouselConfig, fetchLoginCarouselConfigsFromSupabase } from '../services/supabaseService';
+import CarouselShowcase from './carousel/CarouselShowcase';
+import { LoginCarouselConfig, DEFAULT_CAROUSEL_CONFIG } from '../lib/carouselTransitions';
 
 declare global {
   interface Window {
@@ -143,15 +145,32 @@ export default function LoginScreen({ activeApp, onLoginSuccess, onOpenLegal }: 
   // Image load fallback state
   const [imageError, setImageError] = useState<Record<string, boolean>>({});
 
-  // Active luxury Indian scene index for auto-sliding carousel
+  // Active luxury Indian scene index for carousel
   const [activeSceneIndex, setActiveSceneIndex] = useState(0);
 
+  // Resolved Login Carousel Transition Configuration (Priority: Single-App > Selective-Apps > Global > Default)
+  const [carouselConfig, setCarouselConfig] = useState<LoginCarouselConfig>(() =>
+    getResolvedCarouselConfig(activeApp?.id || 'default')
+  );
+
   useEffect(() => {
-    const slideTimer = setInterval(() => {
-      setActiveSceneIndex((prev) => (prev + 1) % INDIAN_LUXURY_SCENES.length);
-    }, 4500);
-    return () => clearInterval(slideTimer);
-  }, []);
+    const syncConfig = () => {
+      const resolved = getResolvedCarouselConfig(activeApp?.id || 'default');
+      setCarouselConfig(resolved);
+    };
+
+    syncConfig();
+    fetchLoginCarouselConfigsFromSupabase()
+      .then(() => syncConfig())
+      .catch(() => {});
+
+    window.addEventListener('aspirant_carousel_config_updated', syncConfig);
+    window.addEventListener('aspirant_carousel_config_deleted', syncConfig);
+    return () => {
+      window.removeEventListener('aspirant_carousel_config_updated', syncConfig);
+      window.removeEventListener('aspirant_carousel_config_deleted', syncConfig);
+    };
+  }, [activeApp?.id]);
 
   // Dedicated 60-Second Resend Countdown Manager
   const startCountdown = (seconds = 60) => {
@@ -671,7 +690,7 @@ export default function LoginScreen({ activeApp, onLoginSuccess, onOpenLegal }: 
     : `+91 ${mobileNumber}`;
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#FAF8F5] via-[#F4EFE6] to-[#EAE1D2] text-stone-900 flex flex-col justify-between items-center px-4 py-4 sm:py-6 lg:py-8 font-sans selection:bg-amber-600 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen w-full bg-gradient-to-br from-[#FAF8F5] via-[#F4EFE6] to-[#EAE1D2] text-stone-900 flex flex-col justify-between items-center px-3 sm:px-4 pt-2 pb-3 sm:py-5 lg:py-7 font-sans selection:bg-amber-600 selection:text-white relative overflow-x-hidden">
       {/* Hidden reCAPTCHA Container */}
       <div id="recaptcha-container"></div>
 
@@ -681,21 +700,21 @@ export default function LoginScreen({ activeApp, onLoginSuccess, onOpenLegal }: 
       <div className="fixed top-1/2 right-10 w-[350px] h-[350px] bg-amber-200/15 rounded-full blur-3xl pointer-events-none" />
 
       {/* ========================================================================= */}
-      {/* 1. TOP HEADER & BRANDING                                                  */}
+      {/* 1. TOP HEADER & BRANDING: APPSC Group 2 moved slightly upward above images */}
       {/* ========================================================================= */}
-      <header className="relative z-10 w-full max-w-7xl flex items-center justify-between py-2 mb-3 px-2">
-        <div className="flex items-center gap-3">
-          <div className="p-1.5 rounded-2xl bg-white border-2 border-amber-300/70 shadow-sm">
-            <ApEmblem size={38} />
+      <header className="relative z-10 w-full max-w-7xl flex items-center justify-between pt-0.5 pb-1 sm:py-2 mb-1.5 sm:mb-2 px-1 sm:px-2">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="p-1 sm:p-1.5 rounded-2xl bg-white border-2 border-amber-300/70 shadow-sm shrink-0">
+            <ApEmblem size={34} />
           </div>
           <div>
-            <h1 className="text-stone-900 font-black text-base sm:text-lg lg:text-xl tracking-tight leading-tight flex items-center gap-2">
+            <h1 className="text-stone-900 font-black text-sm sm:text-lg lg:text-xl tracking-tight leading-tight flex items-center gap-1.5 sm:gap-2">
               <span>{examName}</span>
-              <span className="text-[10px] sm:text-[11px] font-black uppercase bg-gradient-to-r from-amber-600 to-amber-500 text-white px-2 py-0.5 rounded-full shadow-xs">
+              <span className="text-[9px] sm:text-[11px] font-black uppercase bg-gradient-to-r from-amber-600 to-amber-500 text-white px-1.5 sm:px-2 py-0.5 rounded-full shadow-xs">
                 Official
               </span>
             </h1>
-            <p className="text-xs text-stone-600 font-semibold">
+            <p className="text-[11px] sm:text-xs text-stone-600 font-semibold leading-tight">
               {language === 'te' && appSupportsTelugu ? 'పోటీ పరీక్షల సాధన & మాక్ టెస్ట్ వేదిక' : 'Official Aspirant Exam Prep & MCQ Arena'}
             </p>
           </div>
@@ -705,146 +724,50 @@ export default function LoginScreen({ activeApp, onLoginSuccess, onOpenLegal }: 
           <button
             type="button"
             onClick={handleToggleLanguage}
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white hover:bg-stone-50 border border-amber-200/80 text-xs font-bold text-stone-800 transition-all shadow-xs cursor-pointer hover:shadow-sm"
+            className="flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white hover:bg-stone-50 border border-amber-200/80 text-xs font-bold text-stone-800 transition-all shadow-xs cursor-pointer hover:shadow-sm"
           >
-            <Globe className="w-4 h-4 text-amber-600" />
+            <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-600" />
             <span>{language === 'te' ? 'English' : 'తెలుగు'}</span>
           </button>
         )}
       </header>
 
       {/* ========================================================================= */}
-      {/* 2. MAIN SHOWCASE: EXPANSIVE FULL-SCREEN CAROUSEL + LUXURY LOGIN CARD      */}
+      {/* 2. MAIN SHOWCASE: REFINED CAROUSEL (10% REDUCTION) + LUXURY LOGIN CARD    */}
       {/* ========================================================================= */}
-      <main className="relative z-10 w-full max-w-7xl my-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-stretch">
+      <main className="relative z-10 w-full max-w-7xl mt-0.5 sm:mt-1 mb-auto lg:my-auto grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 xl:gap-10 items-stretch">
         
         {/* ======================================================================= */}
-        {/* LEFT: EXPANSIVE CAROUSEL HERO SHOWCASE (LARGE / FULL-SCREEN STYLE)     */}
+        {/* LEFT: CAROUSEL HERO SHOWCASE (OPTIMIZED SIZE - 10% REDUCTION)           */}
         {/* ======================================================================= */}
-        <section className="lg:col-span-7 xl:col-span-7 flex flex-col gap-3">
-          <div className="relative w-full rounded-3xl overflow-hidden border-2 border-amber-300/80 shadow-[0_25px_60px_-15px_rgba(180,120,40,0.22)] bg-stone-900 h-[340px] sm:h-[420px] md:h-[480px] lg:h-full lg:min-h-[600px] xl:min-h-[640px] group">
-            <AnimatePresence mode="wait">
-              {(() => {
-                const currentScene = INDIAN_LUXURY_SCENES[activeSceneIndex];
-                const hasErr = imageError[currentScene.id];
-
-                return (
-                  <motion.div
-                    key={currentScene.id}
-                    initial={{ opacity: 0, scale: 1.04 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.55, ease: 'easeOut' }}
-                    className="absolute inset-0 w-full h-full"
-                  >
-                    {!hasErr ? (
-                      <img
-                        src={currentScene.image}
-                        alt={currentScene.titleEn}
-                        onError={() => setImageError((prev) => ({ ...prev, [currentScene.id]: true }))}
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-stone-900 via-stone-800 to-amber-950 p-6 sm:p-8 flex flex-col justify-between">
-                        <div className="flex items-center gap-2.5">
-                          <Award className="w-7 h-7 text-amber-400" />
-                          <span className="text-xs font-black uppercase text-amber-300 tracking-wider">
-                            {language === 'te' ? currentScene.badgeTe : currentScene.badgeEn}
-                          </span>
-                        </div>
-                        <div>
-                          <h3 className="text-xl sm:text-2xl font-black text-white">
-                            {language === 'te' ? currentScene.titleTe : currentScene.titleEn}
-                          </h3>
-                          <p className="text-sm text-stone-300 mt-1">
-                            {language === 'te' ? currentScene.descTe : currentScene.descEn}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Rich Cinematic Scrim Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-stone-950/20 flex flex-col justify-between p-4 sm:p-6 lg:p-8">
-                      {/* Top Row: Luxury Gold Badge & Slide Number */}
-                      <div className="flex items-center justify-between w-full">
-                        <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-amber-500/90 text-stone-950 text-xs font-black uppercase tracking-wider backdrop-blur-md border border-amber-300/80 shadow-md">
-                          <Sparkles className="w-3.5 h-3.5 text-stone-950 fill-stone-950" />
-                          <span>{language === 'te' ? currentScene.badgeTe : currentScene.badgeEn}</span>
-                        </span>
-                        
-                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-950/75 border border-amber-400/40 text-xs font-mono font-bold text-amber-300 backdrop-blur-md">
-                          <span>{activeSceneIndex + 1}</span>
-                          <span className="text-stone-400">/</span>
-                          <span className="text-stone-300">{INDIAN_LUXURY_SCENES.length}</span>
-                        </div>
-                      </div>
-
-                      {/* Bottom Row: Large Grand Title & Subtitle */}
-                      <div className="space-y-2 max-w-2xl">
-                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-tight drop-shadow-lg">
-                          {language === 'te' ? currentScene.titleTe : currentScene.titleEn}
-                        </h2>
-                        <p className="text-xs sm:text-sm lg:text-base text-amber-100/95 font-medium leading-relaxed drop-shadow-md">
-                          {language === 'te' ? currentScene.descTe : currentScene.descEn}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })()}
-            </AnimatePresence>
-
-            {/* Carousel Navigation Chevron Buttons */}
-            <button
-              type="button"
-              onClick={() => setActiveSceneIndex((prev) => (prev === 0 ? INDIAN_LUXURY_SCENES.length - 1 : prev - 1))}
-              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-2.5 rounded-full bg-stone-950/60 hover:bg-stone-950 border border-amber-300/50 text-white hover:text-amber-300 transition-all cursor-pointer backdrop-blur-md shadow-lg opacity-80 group-hover:opacity-100"
-              aria-label="Previous Scene"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setActiveSceneIndex((prev) => (prev + 1) % INDIAN_LUXURY_SCENES.length)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-2.5 rounded-full bg-stone-950/60 hover:bg-stone-950 border border-amber-300/50 text-white hover:text-amber-300 transition-all cursor-pointer backdrop-blur-md shadow-lg opacity-80 group-hover:opacity-100"
-              aria-label="Next Scene"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-
-            {/* Carousel Pagination Indicators */}
-            <div className="absolute bottom-3 sm:bottom-4 inset-x-0 z-20 flex items-center justify-center gap-2">
-              {INDIAN_LUXURY_SCENES.map((scene, idx) => (
-                <button
-                  key={scene.id}
-                  type="button"
-                  onClick={() => setActiveSceneIndex(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                    activeSceneIndex === idx
-                      ? 'w-7 sm:w-8 bg-amber-400 shadow-md shadow-amber-400/50'
-                      : 'w-2 sm:w-2.5 bg-white/50 hover:bg-white/80'
-                  }`}
-                  aria-label={`Go to scene ${idx + 1}`}
-                />
-              ))}
-            </div>
-          </div>
+        <section className="lg:col-span-6 xl:col-span-6 flex flex-col gap-2.5 sm:gap-3 max-w-2xl mx-auto lg:max-w-none w-full">
+          <CarouselShowcase
+            config={carouselConfig}
+            scenes={INDIAN_LUXURY_SCENES}
+            activeSceneIndex={activeSceneIndex}
+            setActiveSceneIndex={setActiveSceneIndex}
+            language={language}
+            aspectClassName="h-[240px] sm:h-[300px] md:h-[345px] lg:h-full lg:min-h-[430px] xl:min-h-[460px]"
+            showControls={true}
+            showBadges={true}
+            showPagination={true}
+            isInteractive={true}
+          />
 
           {/* Desktop Prestige Feature Strip */}
-          <div className="hidden lg:flex items-center justify-between px-5 py-3 rounded-2xl bg-white/80 border border-amber-200/80 shadow-xs text-xs font-bold text-stone-700 backdrop-blur-md">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+          <div className="hidden lg:flex items-center justify-between px-4 py-2.5 rounded-2xl bg-white/80 border border-amber-200/80 shadow-xs text-[11px] xl:text-xs font-bold text-stone-700 backdrop-blur-md">
+            <div className="flex items-center gap-1.5 xl:gap-2">
+              <CheckCircle2 className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-emerald-600 shrink-0" />
               <span>{language === 'te' ? '100% అధికారిక సిలబస్' : '100% Official Exam Syllabus'}</span>
             </div>
             <div className="h-3 w-px bg-stone-300" />
-            <div className="flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-amber-600 shrink-0" />
+            <div className="flex items-center gap-1.5 xl:gap-2">
+              <BookOpen className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-amber-600 shrink-0" />
               <span>{language === 'te' ? '5000+ అధ్యాయాల వారీ ప్రశ్నలు' : '5,000+ Topic Wise MCQs'}</span>
             </div>
             <div className="h-3 w-px bg-stone-300" />
-            <div className="flex items-center gap-2">
-              <Award className="w-4 h-4 text-indigo-600 shrink-0" />
+            <div className="flex items-center gap-1.5 xl:gap-2">
+              <Award className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-indigo-600 shrink-0" />
               <span>{language === 'te' ? 'ఆంధ్రప్రదేశ్ & తెలంగాణ టెస్ట్ సిరీస్' : 'AP & TS Real-time Mock Tests'}</span>
             </div>
           </div>
@@ -853,12 +776,12 @@ export default function LoginScreen({ activeApp, onLoginSuccess, onOpenLegal }: 
         {/* ======================================================================= */}
         {/* RIGHT: PREMIUM LUXURIOUS LOGIN CARD CONTAINER                           */}
         {/* ======================================================================= */}
-        <section className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center">
+        <section className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center max-w-xl mx-auto lg:max-w-none w-full">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="w-full bg-white/95 backdrop-blur-2xl rounded-3xl border-2 border-amber-200/80 shadow-[0_25px_60px_-15px_rgba(180,130,40,0.16)] p-6 sm:p-8 flex flex-col gap-5 relative overflow-hidden"
+            className="w-full bg-white/95 backdrop-blur-2xl rounded-3xl border-2 border-amber-200/80 shadow-[0_25px_60px_-15px_rgba(180,130,40,0.16)] p-5 sm:p-7 flex flex-col gap-4 sm:gap-5 relative overflow-hidden"
           >
             {/* Top Royal Gold Accent Bar */}
             <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600" />
@@ -1341,7 +1264,7 @@ export default function LoginScreen({ activeApp, onLoginSuccess, onOpenLegal }: 
       </main>
 
       {/* Footer Copyright */}
-      <footer className="relative z-10 w-full text-center text-xs text-stone-500 font-medium py-3">
+      <footer className="relative z-10 w-full text-center text-[11px] sm:text-xs text-stone-500 font-medium py-1.5 sm:py-2.5">
         © {new Date().getFullYear()} APPSC Group 2 Aspirant Portal • Powered by AI Studio
       </footer>
     </div>
