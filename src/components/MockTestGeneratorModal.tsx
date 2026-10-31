@@ -11,7 +11,7 @@ import {
   generateMockTestQuestions, 
   validateTestConfiguration 
 } from '../utils/mockTestGenerator';
-import { saveMockTestToFirestore } from '../lib/firebase';
+import { saveMockTestToFirestore } from '../services/mockTestService';
 
 interface MockTestGeneratorModalProps {
   isOpen: boolean;

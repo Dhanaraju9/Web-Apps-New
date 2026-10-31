@@ -5,11 +5,10 @@
 
 import { BookmarkItem, Question, CurrentAffairsItem, AppConfig } from '../types';
 import {
-  fetchBookmarksFromFirestore,
-  saveBookmarkToFirestore,
-  deleteBookmarkFromFirestore,
-  deleteMultipleBookmarksFromFirestore
-} from '../lib/firebase';
+  fetchBookmarksFromSupabase,
+  saveBookmarkToSupabase,
+  deleteBookmarkFromSupabase
+} from './supabaseService';
 
 const LOCAL_STORAGE_KEY = 'app_user_bookmarks_v1';
 
@@ -33,7 +32,7 @@ export function saveLocalBookmarks(bookmarks: BookmarkItem[]): void {
 
 export async function fetchBookmarks(userId: string, appId?: string): Promise<BookmarkItem[]> {
   try {
-    const remote = await fetchBookmarksFromFirestore(userId, appId);
+    const remote = await fetchBookmarksFromSupabase(userId, appId);
     const local = getLocalBookmarks().filter(
       (b) => b.userId === userId && (!appId || b.appId === appId || b.appId === 'all')
     );
@@ -78,7 +77,7 @@ export async function toggleBookmarkMCQ(params: {
     // Unbookmark
     const updated = currentBookmarks.filter((b) => b.id !== existing.id);
     saveLocalBookmarks(updated);
-    deleteBookmarkFromFirestore(existing.id).catch(() => {});
+    deleteBookmarkFromSupabase(existing.id).catch(() => {});
     return { updatedBookmarks: updated, isBookmarkedNow: false };
   } else {
     // Find subject/unit/topic names if available
@@ -118,7 +117,7 @@ export async function toggleBookmarkMCQ(params: {
 
     const updated = [newBookmark, ...currentBookmarks];
     saveLocalBookmarks(updated);
-    saveBookmarkToFirestore(newBookmark).catch(() => {});
+    saveBookmarkToSupabase(newBookmark).catch(() => {});
     return { updatedBookmarks: updated, isBookmarkedNow: true };
   }
 }
@@ -139,7 +138,7 @@ export async function toggleBookmarkCA(params: {
     // Unbookmark
     const updated = currentBookmarks.filter((b) => b.id !== existing.id);
     saveLocalBookmarks(updated);
-    deleteBookmarkFromFirestore(existing.id).catch(() => {});
+    deleteBookmarkFromSupabase(existing.id).catch(() => {});
     return { updatedBookmarks: updated, isBookmarkedNow: false };
   } else {
     const newBookmark: BookmarkItem = {
@@ -156,7 +155,7 @@ export async function toggleBookmarkCA(params: {
 
     const updated = [newBookmark, ...currentBookmarks];
     saveLocalBookmarks(updated);
-    saveBookmarkToFirestore(newBookmark).catch(() => {});
+    saveBookmarkToSupabase(newBookmark).catch(() => {});
     return { updatedBookmarks: updated, isBookmarkedNow: true };
   }
 }
@@ -164,7 +163,9 @@ export async function toggleBookmarkCA(params: {
 export async function removeBookmarks(ids: string[], currentBookmarks: BookmarkItem[]): Promise<BookmarkItem[]> {
   const updated = currentBookmarks.filter((b) => !ids.includes(b.id));
   saveLocalBookmarks(updated);
-  deleteMultipleBookmarksFromFirestore(ids).catch(() => {});
+  for (const id of ids) {
+    deleteBookmarkFromSupabase(id).catch(() => {});
+  }
   return updated;
 }
 

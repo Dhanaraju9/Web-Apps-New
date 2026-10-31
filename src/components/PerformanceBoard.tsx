@@ -45,126 +45,126 @@ export default function PerformanceBoard({ activeApp, questions }: PerformanceBo
   }, [activeApp.id]);
 
   return (
-    <div className="w-full max-w-6xl xl:max-w-7xl mx-auto space-y-6 pb-12 font-sans">
+    <div className="w-full max-w-6xl xl:max-w-7xl mx-auto space-y-4 pb-8 font-sans">
       {/* Header Banner with Bright Premium Gradient */}
-      <div className="bg-gradient-to-r from-[#DCEBFF] via-[#EDE7FF] to-[#FFF1CC] text-[#1E1B4B] rounded-3xl p-6 sm:p-8 shadow-lg space-y-3 relative overflow-hidden border-2 border-sky-300">
-        <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-15 text-9xl pointer-events-none select-none">📊</div>
-        <div className="relative z-10 space-y-2">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-white/90 text-[#1E1B4B] rounded-full text-xs font-black border border-sky-300 shadow-2xs">
-              <TrendingUp className="h-3.5 w-3.5 text-indigo-600" /> Advanced Analytics & Speed Insights
+      <div className="bg-gradient-to-r from-[#DCEBFF] via-[#EDE7FF] to-[#FFF1CC] text-[#1E1B4B] rounded-2xl p-4 sm:p-6 shadow-md space-y-2 relative overflow-hidden border-2 border-sky-300">
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-15 text-7xl pointer-events-none select-none">📊</div>
+        <div className="relative z-10 space-y-1.5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-white/90 text-[#1E1B4B] rounded-full text-[10px] font-black border border-sky-300 shadow-2xs">
+              <TrendingUp className="h-3 w-3 text-indigo-600" /> Advanced Analytics
             </div>
 
             {/* Time Filter Pills */}
-            <div className="flex items-center gap-1 bg-white/95 p-1 rounded-2xl border border-amber-300 shadow-2xs">
+            <div className="flex items-center gap-1 bg-white/95 p-0.5 rounded-xl border border-amber-300 shadow-2xs">
               <button
                 onClick={() => setTimeFilter('week')}
-                className={`px-3 py-1 rounded-xl text-xs font-black transition-all cursor-pointer ${
+                className={`px-2.5 py-1 rounded-lg text-[10px] font-black transition-all cursor-pointer ${
                   timeFilter === 'week' ? 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-sm' : 'text-[#1E1B4B] hover:bg-[#FFF1CC]'
                 }`}
               >
-                This Week
+                Week
               </button>
               <button
                 onClick={() => setTimeFilter('month')}
-                className={`px-3 py-1 rounded-xl text-xs font-black transition-all cursor-pointer ${
+                className={`px-2.5 py-1 rounded-lg text-[10px] font-black transition-all cursor-pointer ${
                   timeFilter === 'month' ? 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-sm' : 'text-[#1E1B4B] hover:bg-[#FFF1CC]'
                 }`}
               >
-                This Month
+                Month
               </button>
               <button
                 onClick={() => setTimeFilter('all')}
-                className={`px-3 py-1 rounded-xl text-xs font-black transition-all cursor-pointer ${
+                className={`px-2.5 py-1 rounded-lg text-[10px] font-black transition-all cursor-pointer ${
                   timeFilter === 'all' ? 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-sm' : 'text-[#1E1B4B] hover:bg-[#FFF1CC]'
                 }`}
               >
-                All Time
+                All
               </button>
             </div>
           </div>
           
-          <h2 className="text-xl sm:text-2xl font-black text-[#1E1B4B]">Performance Analytics Dashboard</h2>
-          <p className="text-xs text-slate-700 font-semibold">Detailed subject-wise accuracy, speed analysis, and mock test scores for {activeApp.name}.</p>
+          <h2 className="text-lg sm:text-xl font-black text-[#1E1B4B]">Performance Dashboard</h2>
+          <p className="text-[11px] text-slate-700 font-semibold leading-tight">Detailed subject accuracy and speed analysis for {activeApp.name}.</p>
         </div>
       </div>
 
       {totalPracticed === 0 ? (
-        <div className="bg-gradient-to-br from-[#FFF8E7] via-white to-[#DCEBFF]/60 rounded-3xl p-10 sm:p-14 text-center border-2 border-amber-300 shadow-md space-y-4">
-          <div className="h-16 w-16 rounded-2xl bg-[#DCEBFF] text-indigo-700 border border-sky-300 flex items-center justify-center mx-auto text-3xl font-black shadow-2xs">
+        <div className="bg-gradient-to-br from-[#FFF8E7] via-white to-[#DCEBFF]/60 rounded-2xl p-8 sm:p-12 text-center border-2 border-amber-300 shadow-md space-y-3">
+          <div className="h-12 w-12 rounded-xl bg-[#DCEBFF] text-indigo-700 border border-sky-300 flex items-center justify-center mx-auto text-2xl font-black shadow-2xs">
             📊
           </div>
-          <div className="space-y-1.5 max-w-md mx-auto">
-            <h3 className="text-lg font-black text-[#1E1B4B]">No Performance Data Available</h3>
-            <p className="text-xs text-slate-600 leading-relaxed font-semibold">
-              Start practicing MCQs and taking full-length mock tests to generate your real accuracy breakdown, speed insights, and topic mastery.
+          <div className="space-y-1 max-w-md mx-auto">
+            <h3 className="text-base font-black text-[#1E1B4B]">No Data Available</h3>
+            <p className="text-[11px] text-slate-600 leading-relaxed font-semibold">
+              Start practicing and taking mock tests to generate your accuracy breakdown and speed insights.
             </p>
           </div>
         </div>
       ) : (
         <>
           {/* Overview Metric Cards with Real Metrics */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-gradient-to-b from-[#F4F9FF] via-[#DCEBFF] to-[#DCEBFF] p-6 rounded-3xl border-2 border-sky-300 shadow-md space-y-2 relative overflow-hidden group hover:shadow-xl transition-all">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="bg-gradient-to-b from-[#F4F9FF] via-[#DCEBFF] to-[#DCEBFF] p-4 rounded-2xl border-2 border-sky-300 shadow-sm space-y-1.5 relative overflow-hidden group hover:shadow-md transition-all">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-[#1E1B4B] uppercase tracking-wider">Total MCQs Practiced</span>
-                <span className="p-2.5 rounded-2xl bg-sky-600 text-white font-bold shadow-md">📝</span>
+                <span className="text-[10px] font-black text-[#1E1B4B] uppercase tracking-wider">Practiced</span>
+                <span className="p-1.5 rounded-lg bg-sky-600 text-white font-bold shadow-md text-xs">📝</span>
               </div>
-              <p className="text-3xl font-black text-[#1E1B4B]">{totalPracticed} <span className="text-xs font-bold text-indigo-700">MCQs</span></p>
-              <p className="text-[11px] text-emerald-800 font-extrabold flex items-center gap-1">
-                <span>✓</span> Real-time practice sessions recorded
+              <p className="text-2xl font-black text-[#1E1B4B]">{totalPracticed} <span className="text-[10px] font-bold text-indigo-700">MCQs</span></p>
+              <p className="text-[10px] text-emerald-800 font-extrabold">
+                Real-time sessions
               </p>
             </div>
 
-            <div className="bg-gradient-to-b from-[#F2FEF7] via-[#D9FBE8] to-[#D9FBE8] p-6 rounded-3xl border-2 border-emerald-300 shadow-md space-y-2 relative overflow-hidden group hover:shadow-xl transition-all">
+            <div className="bg-gradient-to-b from-[#F2FEF7] via-[#D9FBE8] to-[#D9FBE8] p-4 rounded-2xl border-2 border-emerald-300 shadow-sm space-y-1.5 relative overflow-hidden group hover:shadow-md transition-all">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-[#1E1B4B] uppercase tracking-wider">Correct Answers</span>
-                <span className="p-2.5 rounded-2xl bg-emerald-600 text-white font-bold shadow-md">✅</span>
+                <span className="text-[10px] font-black text-[#1E1B4B] uppercase tracking-wider">Correct</span>
+                <span className="p-1.5 rounded-lg bg-emerald-600 text-white font-bold shadow-md text-xs">✅</span>
               </div>
-              <p className="text-3xl font-black text-emerald-700">{correctAnswers} <span className="text-sm font-bold text-[#1E1B4B]">({accuracyRate}%)</span></p>
-              <p className="text-[11px] text-emerald-900 font-bold">Overall accuracy rate</p>
+              <p className="text-2xl font-black text-emerald-700">{correctAnswers} <span className="text-[11px] font-bold text-[#1E1B4B]">({accuracyRate}%)</span></p>
+              <p className="text-[10px] text-emerald-900 font-bold">Accuracy rate</p>
             </div>
 
-            <div className="bg-gradient-to-b from-[#FFFCF0] via-[#FFF1CC] to-[#FFF1CC] p-6 rounded-3xl border-2 border-amber-300 shadow-md space-y-2 relative overflow-hidden group hover:shadow-xl transition-all">
+            <div className="bg-gradient-to-b from-[#FFFCF0] via-[#FFF1CC] to-[#FFF1CC] p-4 rounded-2xl border-2 border-amber-300 shadow-sm space-y-1.5 relative overflow-hidden group hover:shadow-md transition-all">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-[#1E1B4B] uppercase tracking-wider">Avg. Speed</span>
-                <span className="p-2.5 rounded-2xl bg-amber-600 text-white font-bold shadow-md">⏱️</span>
+                <span className="text-[10px] font-black text-[#1E1B4B] uppercase tracking-wider">Avg. Speed</span>
+                <span className="p-1.5 rounded-lg bg-amber-600 text-white font-bold shadow-md text-xs">⏱️</span>
               </div>
-              <p className="text-3xl font-black text-amber-800">{avgSecondsPerQ > 0 ? `${avgSecondsPerQ}s` : '--'} <span className="text-xs text-slate-600 font-bold">/ Question</span></p>
-              <p className="text-[11px] text-amber-900 font-extrabold flex items-center gap-1">
-                <span>⚡</span> Average time spent per question
+              <p className="text-2xl font-black text-amber-800">{avgSecondsPerQ > 0 ? `${avgSecondsPerQ}s` : '--'} <span className="text-[10px] text-slate-600 font-bold">/ Q</span></p>
+              <p className="text-[10px] text-amber-900 font-extrabold">
+                Time spent per question
               </p>
             </div>
           </div>
 
           {/* Speed & Accuracy Analytics Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-br from-white via-[#F8F5FF] to-[#EDE7FF]/70 rounded-3xl p-6 sm:p-7 border-2 border-violet-200 shadow-sm space-y-5">
-              <div className="flex items-center justify-between border-b border-violet-200/80 pb-4">
-                <h3 className="text-sm font-black text-[#1E1B4B] flex items-center gap-2">
-                  <BarChart2 className="h-5 w-5 text-violet-600" />
-                  Subject-Wise Accuracy
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-gradient-to-br from-white via-[#F8F5FF] to-[#EDE7FF]/70 rounded-2xl p-4 sm:p-5 border-2 border-violet-200 shadow-sm space-y-3">
+              <div className="flex items-center justify-between border-b border-violet-200/80 pb-3">
+                <h3 className="text-xs font-black text-[#1E1B4B] flex items-center gap-2">
+                  <BarChart2 className="h-4 w-4 text-violet-600" />
+                  Subject Accuracy
                 </h3>
               </div>
-              <div className="py-6 text-center text-slate-600 font-semibold text-xs">
-                Detailed subject breakdowns update as questions are completed in multiple subjects.
+              <div className="py-4 text-center text-slate-600 font-semibold text-[10px]">
+                Breakdowns update as subjects are completed.
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-white via-[#F2FCFB] to-[#D8F7F5]/70 rounded-3xl p-6 sm:p-7 border-2 border-teal-200 shadow-sm space-y-5">
-              <div className="flex items-center justify-between border-b border-teal-200/80 pb-4">
-                <h3 className="text-sm font-black text-[#1E1B4B] flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-teal-600" />
-                  Time & Speed Breakdown
+            <div className="bg-gradient-to-br from-white via-[#F2FCFB] to-[#D8F7F5]/70 rounded-2xl p-4 sm:p-5 border-2 border-teal-200 shadow-sm space-y-3">
+              <div className="flex items-center justify-between border-b border-teal-200/80 pb-3">
+                <h3 className="text-xs font-black text-[#1E1B4B] flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-teal-600" />
+                  Speed Analysis
                 </h3>
               </div>
-              <div className="space-y-4">
-                <div className="bg-white p-4 rounded-2xl border border-teal-200 flex items-center justify-between shadow-2xs">
+              <div className="space-y-3">
+                <div className="bg-white p-3 rounded-xl border border-teal-200 flex items-center justify-between shadow-2xs">
                   <div>
-                    <p className="text-xs font-bold text-slate-600">Avg. Time per Question</p>
-                    <p className="text-lg font-black text-[#1E1B4B]">{avgSecondsPerQ > 0 ? `${avgSecondsPerQ} seconds` : 'Calculating...'}</p>
+                    <p className="text-[10px] font-bold text-slate-600">Avg. Time / Question</p>
+                    <p className="text-base font-black text-[#1E1B4B]">{avgSecondsPerQ > 0 ? `${avgSecondsPerQ} seconds` : '--'}</p>
                   </div>
-                  <span className="p-3 rounded-2xl bg-[#D9FBE8] text-emerald-700 border border-emerald-200 text-lg">⚡</span>
+                  <span className="p-2.5 rounded-xl bg-[#D9FBE8] text-emerald-700 border border-emerald-200 text-base">⚡</span>
                 </div>
               </div>
             </div>

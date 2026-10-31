@@ -428,7 +428,7 @@ export const supabaseAuthWrapper = {
   },
 };
 
-// Aliases for direct module imports
+// Aliases for direct module imports and drop-in Firebase replacement
 export const registerWithSupabaseEmailPassword = (email: string, pass: string, name?: string) =>
   supabaseAuthWrapper.signUpWithEmail(email, pass, name).then((res) => res.user);
 
@@ -447,5 +447,14 @@ export const subscribeToSupabaseAuthChanges = (cb: (user: SupabaseAuthUser | nul
 export const loginWithSupabaseGoogle = () =>
   supabaseAuthWrapper.signInWithGoogle();
 
+export const registerWithEmailPassword = registerWithSupabaseEmailPassword;
+export const loginWithEmailPassword = loginWithSupabaseEmailPassword;
+export const resetUserPassword = resetSupabaseUserPassword;
+export const logoutUser = logoutSupabaseUser;
+export const subscribeToAuthChanges = subscribeToSupabaseAuthChanges;
+export const signInWithGoogle = loginWithSupabaseGoogle;
+export const auth = supabaseAuthWrapper;
+
 export const supabaseAuth = supabaseAuthWrapper;
 export default supabase;
+

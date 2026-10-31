@@ -14,7 +14,13 @@ import {
   Bookmark, BookmarkCheck
 } from 'lucide-react';
 import { isBookmarked, toggleBookmarkMCQ, fetchBookmarks } from '../services/bookmarkService';
-import { savePracticeResultToFirestore } from '../lib/firebase';
+const savePracticeResultToFirestore = async (data: any) => {
+  try {
+    const history = JSON.parse(localStorage.getItem('aspirant_practice_history') || '[]');
+    history.push({ ...data, createdAt: new Date().toISOString() });
+    localStorage.setItem('aspirant_practice_history', JSON.stringify(history));
+  } catch (e) {}
+};
 import { BookmarkItem } from '../types';
 import MathText from './MathText';
 import PremiumResultScreen from './PremiumResultScreen';

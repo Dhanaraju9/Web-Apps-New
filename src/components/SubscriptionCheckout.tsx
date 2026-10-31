@@ -6,7 +6,7 @@ import {
   ExternalLink, Zap, QrCode, SmartphoneNfc, ChevronDown, ChevronUp, Wallet, Download
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { recordPurchaseInFirestore } from '../lib/firebase';
+import { recordPurchaseInSupabase as recordPurchaseInFirestore } from '../services/supabaseService';
 
 interface SubscriptionCheckoutProps {
   activeApp: AppConfig;
@@ -245,7 +245,7 @@ export default function SubscriptionCheckout({
     let validityDurationMs = 30 * 24 * 60 * 60 * 1000;
     if (selectedPackage.id === 'sub-24h' || selectedPackage.billingCycle === '24 Hours' || selectedPackage.price === 49) {
       validityDurationMs = 24 * 60 * 60 * 1000; // 24 hours
-    } else if (selectedPackage.id === 'sub-offline-99' || selectedPackage.price === 99 || selectedPackage.billingCycle === 'quarterly' || selectedPackage.price === 499) {
+    } else if (selectedPackage.billingCycle === 'quarterly' || selectedPackage.price === 499) {
       validityDurationMs = 90 * 24 * 60 * 60 * 1000;
     } else if (selectedPackage.billingCycle === 'half-yearly' || selectedPackage.price === 799) {
       validityDurationMs = 180 * 24 * 60 * 60 * 1000;

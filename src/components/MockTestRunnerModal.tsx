@@ -9,7 +9,7 @@ import { isBookmarked, toggleBookmarkMCQ, fetchBookmarks } from '../services/boo
 import { BookmarkItem } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 import MathText from './MathText';
-import { saveMockTestAttemptToFirestore } from '../lib/firebase';
+import { saveMockAttemptToFirestore as saveMockTestAttemptToFirestore } from '../services/mockTestService';
 import { useMcqFontSize } from '../lib/mcqFontStore';
 import { McqFontControls } from './McqFontControls';
 import { useMcqAppearance } from '../lib/mcqAppearanceStore';

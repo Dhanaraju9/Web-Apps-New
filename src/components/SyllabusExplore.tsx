@@ -616,7 +616,7 @@ export default function SyllabusExplore({
 
             {/* Topics Grid for this specific unit */}
             {selectedUnit.topics && selectedUnit.topics.length > 0 ? (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {selectedUnit.topics.map((topic, idx) => {
                   const topicPercentage = getTopicPercentage(currentSubject.id, selectedUnit.id, topic);
                   const topicImg = getTopicImage(topic, selectedUnit, currentSubject.name, idx);
@@ -634,15 +634,15 @@ export default function SyllabusExplore({
                       whileHover={{ y: -3, scale: 1.005 }}
                       whileTap={{ scale: 0.99 }}
                       onClick={() => setSelectedTopicForSubtopics({ unitId: selectedUnit.id, unitName: selectedUnit.name, topic })}
-                      className={`${cardTheme.cardBgClass} rounded-2xl sm:rounded-3xl overflow-hidden border-2 ${cardTheme.borderClass} shadow-md hover:shadow-lg transition-all cursor-pointer flex flex-col group relative p-1.5 sm:p-2`}
+                      className={`${cardTheme.cardBgClass} rounded-2xl overflow-hidden border-2 ${cardTheme.borderClass} shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col group relative p-1.5`}
                     >
-                      {/* Prominent Bright Daylight Topic Image — Generous Visibility Without Overlapping Text */}
-                      <div className="relative h-56 sm:h-64 md:h-72 w-full overflow-hidden rounded-xl sm:rounded-2xl bg-sky-100 z-10 shrink-0">
+                      {/* Compact Prominent Bright Topic Image */}
+                      <div className="relative h-36 sm:h-44 md:h-48 w-full overflow-hidden rounded-xl bg-sky-100 z-10 shrink-0">
                         <SmartCardImage
                           src={topicImg}
                           alt={topic.name}
                           fallbackLabel={topic.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                         />
 
                         {/* Top Bar: Topic Pill, Optional Theory Pill & MCQ Counter */}
@@ -674,11 +674,11 @@ export default function SyllabusExplore({
                         </div>
                       </div>
 
-                      {/* Compact Single-Row Bottom Bar Matching Approved Reference Design */}
-                      <div className={`px-2 sm:px-3.5 py-2 min-h-[60px] sm:min-h-[68px] relative z-10 flex flex-row items-center justify-between gap-1.5 sm:gap-2.5 ${cardTheme.bodyBgClass} rounded-b-xl sm:rounded-b-2xl shrink-0`}>
+                      {/* Compact Single-Row Bottom Bar */}
+                      <div className={`px-2 py-1.5 min-h-[52px] relative z-10 flex flex-row items-center justify-between gap-2 ${cardTheme.bodyBgClass} rounded-b-xl shrink-0`}>
                         <div className="min-w-0 flex-1">
-                          <div className={`h-1 sm:h-1.5 w-8 sm:w-10 rounded-full bg-gradient-to-r ${cardTheme.accentBarClass} mb-1`} />
-                          <h4 className="text-[11px] sm:text-[13px] font-black text-[#1E1B4B] leading-tight line-clamp-2">
+                          <div className={`h-1 w-8 rounded-full bg-gradient-to-r ${cardTheme.accentBarClass} mb-0.5`} />
+                          <h4 className="text-[11px] sm:text-xs font-black text-[#1E1B4B] leading-snug line-clamp-2">
                             {topic.name}
                           </h4>
                         </div>
@@ -790,7 +790,7 @@ export default function SyllabusExplore({
             {viewMode === 'units' ? (
               /* --- UNITS CARDS GRID --- */
               subjectUnits.length > 0 ? (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {subjectUnits.map((unit, uIdx) => {
                     const unitTopics = unit.topics || [];
                     const unitMcqCount = getUnitQuestionsCount(currentSubject.id, unit);
@@ -814,15 +814,15 @@ export default function SyllabusExplore({
                         whileHover={{ y: -3, scale: 1.005 }}
                         whileTap={{ scale: 0.99 }}
                         onClick={() => setSelectedUnitId(unit.id)}
-                        className={`${cardTheme.cardBgClass} rounded-2xl sm:rounded-3xl overflow-hidden border-2 ${cardTheme.borderClass} shadow-md hover:shadow-lg transition-all cursor-pointer flex flex-col group relative p-1.5 sm:p-2`}
+                        className={`${cardTheme.cardBgClass} rounded-2xl overflow-hidden border-2 ${cardTheme.borderClass} shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col group relative p-1.5`}
                       >
-                        {/* Prominent Bright Daylight Unit Image — Generous Visibility Without Overlapping Text */}
-                        <div className="relative h-56 sm:h-64 md:h-72 w-full overflow-hidden rounded-xl sm:rounded-2xl bg-sky-100 z-10 shrink-0">
+                        {/* Compact Prominent Bright Unit Image */}
+                        <div className="relative h-36 sm:h-44 md:h-48 w-full overflow-hidden rounded-xl bg-sky-100 z-10 shrink-0">
                           <SmartCardImage
                             src={unitImg}
                             alt={unit.name}
                             fallbackLabel={displayUnitName}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                           />
 
                           {/* Top Bar: Unit Pill & MCQ Counter */}
@@ -839,11 +839,11 @@ export default function SyllabusExplore({
                           </div>
                         </div>
 
-                        {/* Compact Single-Row Bottom Bar Matching Approved Reference Design */}
-                        <div className={`px-2 sm:px-3.5 py-2 min-h-[60px] sm:min-h-[68px] relative z-10 flex flex-row items-center justify-between gap-1.5 sm:gap-2.5 ${cardTheme.bodyBgClass} rounded-b-xl sm:rounded-b-2xl shrink-0`}>
+                        {/* Compact Single-Row Bottom Bar */}
+                        <div className={`px-2 py-1.5 min-h-[52px] relative z-10 flex flex-row items-center justify-between gap-2 ${cardTheme.bodyBgClass} rounded-b-xl shrink-0`}>
                           <div className="min-w-0 flex-1">
-                            <div className={`h-1 sm:h-1.5 w-8 sm:w-10 rounded-full bg-gradient-to-r ${cardTheme.accentBarClass} mb-1`} />
-                            <h4 className="text-[11px] sm:text-[13px] font-black text-[#1E1B4B] leading-tight line-clamp-2">
+                            <div className={`h-1 w-8 rounded-full bg-gradient-to-r ${cardTheme.accentBarClass} mb-0.5`} />
+                            <h4 className="text-[11px] sm:text-xs font-black text-[#1E1B4B] leading-snug line-clamp-2">
                               {displayUnitName}
                             </h4>
                           </div>
@@ -878,7 +878,7 @@ export default function SyllabusExplore({
             ) : (
               /* --- ALL TOPICS VIEW (FLAT GRID) --- */
               allTopicsInSubject.length > 0 ? (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {allTopicsInSubject.map(({ unitId, unitName, topic }, idx) => {
                     const topicPercentage = getTopicPercentage(currentSubject.id, unitId, topic);
                     const topicImg = getTopicImage(topic, { id: unitId, name: unitName }, currentSubject.name, idx);
@@ -896,15 +896,15 @@ export default function SyllabusExplore({
                         whileHover={{ y: -3, scale: 1.005 }}
                         whileTap={{ scale: 0.99 }}
                         onClick={() => setSelectedTopicForSubtopics({ unitId, unitName, topic })}
-                        className={`${cardTheme.cardBgClass} rounded-2xl sm:rounded-3xl overflow-hidden border-2 ${cardTheme.borderClass} shadow-md hover:shadow-lg transition-all cursor-pointer flex flex-col group relative p-1.5 sm:p-2`}
+                        className={`${cardTheme.cardBgClass} rounded-2xl overflow-hidden border-2 ${cardTheme.borderClass} shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col group relative p-1.5`}
                       >
-                        {/* Prominent Bright Daylight Topic Image — Generous Visibility Without Overlapping Text */}
-                        <div className="relative h-56 sm:h-64 md:h-72 w-full overflow-hidden rounded-xl sm:rounded-2xl bg-sky-100 z-10 shrink-0">
+                        {/* Compact Prominent Bright Topic Image */}
+                        <div className="relative h-36 sm:h-44 md:h-48 w-full overflow-hidden rounded-xl bg-sky-100 z-10 shrink-0">
                           <SmartCardImage
                             src={topicImg}
                             alt={topic.name}
                             fallbackLabel={topic.name}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                           />
 
                           {/* Top Bar: Topic Pill, Optional Theory Pill & MCQ Counter */}
@@ -936,11 +936,11 @@ export default function SyllabusExplore({
                           </div>
                         </div>
 
-                        {/* Compact Single-Row Bottom Bar Matching Approved Reference Design */}
-                        <div className={`px-2 sm:px-3.5 py-2 min-h-[60px] sm:min-h-[68px] relative z-10 flex flex-row items-center justify-between gap-1.5 sm:gap-2.5 ${cardTheme.bodyBgClass} rounded-b-xl sm:rounded-b-2xl shrink-0`}>
+                        {/* Compact Single-Row Bottom Bar */}
+                        <div className={`px-2 py-1.5 min-h-[52px] relative z-10 flex flex-row items-center justify-between gap-2 ${cardTheme.bodyBgClass} rounded-b-xl shrink-0`}>
                           <div className="min-w-0 flex-1">
-                            <div className={`h-1 sm:h-1.5 w-8 sm:w-10 rounded-full bg-gradient-to-r ${cardTheme.accentBarClass} mb-1`} />
-                            <h4 className="text-[11px] sm:text-[13px] font-black text-[#1E1B4B] leading-tight line-clamp-2">
+                            <div className={`h-1 w-8 rounded-full bg-gradient-to-r ${cardTheme.accentBarClass} mb-0.5`} />
+                            <h4 className="text-[11px] sm:text-xs font-black text-[#1E1B4B] leading-snug line-clamp-2">
                               {topic.name}
                             </h4>
                           </div>

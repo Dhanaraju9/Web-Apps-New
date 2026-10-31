@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AppConfig, Question, Poster, CurrentAffairsItem, SubscriptionPackage, NotificationItem } from '../types';
-import { BookOpen, Award, CheckCircle, ChevronRight, ChevronLeft, ArrowRight, ArrowLeft, ExternalLink, Play, Bookmark, Calendar, FileText, Sparkles, Star, Shield, Bell, X, Flame, Globe, Compass, Landmark } from 'lucide-react';
+import { BookOpen, Award, CheckCircle, ChevronRight, ChevronLeft, ArrowRight, ArrowLeft, ExternalLink, Play, Bookmark, Calendar, FileText, Sparkles, Star, Shield, Bell, X, Flame, Globe, Compass, Landmark, Newspaper } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { defaultCuratedPosters } from '../lib/defaultData';
 import {
@@ -525,54 +525,54 @@ export default function StudentHome({
           className="space-y-6 transform-gpu"
         >
           {/* Back Navigation Bar & Gorgeous Banner (Mobile Compact & Native Feel) */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-white shadow-lg bg-gradient-to-br from-orange-500 via-orange-600 to-amber-700 border border-orange-400/40">
-            <div className="absolute right-3 top-3 opacity-15 text-6xl sm:text-8xl pointer-events-none">
+          <div className="relative overflow-hidden rounded-2xl p-3 sm:p-5 text-white shadow-md bg-gradient-to-br from-orange-500 via-orange-600 to-amber-700 border border-orange-400/40">
+            <div className="absolute right-3 top-2 opacity-15 text-5xl sm:text-7xl pointer-events-none">
               {subjectFilter === 'prelims' ? '🎯' : '📖'}
             </div>
             
-            <div className="relative z-10 space-y-3 sm:space-y-4">
+            <div className="relative z-10 space-y-2 sm:space-y-3">
               <button
                 onClick={() => setSubjectFilter('all')}
-                className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-xl sm:rounded-2xl text-[11px] sm:text-xs font-black transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer w-fit text-white border border-white/25 shadow-xs active:scale-95"
+                className="px-2.5 py-1 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-lg text-[10px] sm:text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer w-fit text-white border border-white/25 shadow-xs active:scale-95"
               >
                 ← Back to Dashboard
               </button>
 
-              <div className="space-y-1 sm:space-y-1.5 max-w-xl">
-                <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/20 text-white text-[10px] sm:text-[11px] font-black uppercase tracking-widest border border-white/25 inline-block">
+              <div className="space-y-1 max-w-xl">
+                <span className="px-2 py-0.5 rounded-full bg-white/20 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest border border-white/25 inline-block">
                   {subjectFilter === 'prelims' ? 'Screening Test • 150 Marks' : 'Main Examination • 450 Marks'}
                 </span>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-black leading-tight truncate">
+                <h2 className="text-base sm:text-xl md:text-2xl font-black leading-tight truncate">
                   {subjectFilter === 'prelims' ? `${examPrefix} Group-2 Prelims Syllabus` : `${examPrefix} Group-2 Mains Syllabus`}
                 </h2>
-                <p className="text-[11px] sm:text-xs md:text-sm text-slate-100/90 leading-relaxed line-clamp-2">
+                <p className="text-[10px] sm:text-xs text-slate-100/90 leading-relaxed line-clamp-2">
                   {subjectFilter === 'prelims' 
                     ? 'Explore all high-scoring Prelims subjects loaded with comprehensive units, topic-wise practice, and exam MCQs.' 
                     : 'Explore complete Mains subjects covering AP History, Polity, Economy & Science Technology with structured study units.'}
                 </p>
               </div>
 
-              <div className="pt-2 sm:pt-3 border-t border-white/20 flex items-center justify-between text-[11px] sm:text-xs font-bold text-white/90">
+              <div className="pt-2 border-t border-white/20 flex items-center justify-between text-[10px] sm:text-xs font-bold text-white/90">
                 <span>Total Subjects: {filteredSubjects.length}</span>
-                <span className="bg-white/20 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full">Interactive Learning Mode</span>
+                <span className="bg-white/20 px-2 py-0.5 rounded-full">Interactive Learning Mode</span>
               </div>
             </div>
           </div>
 
           {/* Subjects Grid with Beautiful Images (Responsive Grids for Phones & Tablets) */}
-          <div className="space-y-3 sm:space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-sm sm:text-base font-black text-slate-900 flex items-center gap-2">
-                <BookOpen className="h-4 w-4 sm:h-5 sm:w-5 text-orange-600" /> 
+          <div className="space-y-2.5">
+            <div className="flex items-center justify-between px-0.5">
+              <h3 className="text-xs sm:text-sm font-black text-slate-900 flex items-center gap-1.5">
+                <BookOpen className="h-3.5 w-3.5 text-orange-600" /> 
                 {subjectFilter === 'prelims' ? 'Prelims Subjects Grid' : 'Mains Subjects Grid'} ({filteredSubjects.length})
               </h3>
-              <span className="text-[11px] sm:text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full">
+              <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
                 Interactive Grid
               </span>
             </div>
 
             {filteredSubjects.length > 0 ? (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {filteredSubjects.map((subj, idx) => {
                   const subjectImg = getSubjectImage(subj, idx);
                   const cardTheme = getBrightCardTheme(`${subj.id || ''} ${subj.name || ''}`, idx);
@@ -584,39 +584,39 @@ export default function StudentHome({
                   return (
                     <motion.div
                       key={subj.id}
-                      whileHover={{ y: -3, scale: 1.005 }}
+                      whileHover={{ y: -2, scale: 1.002 }}
                       whileTap={{ scale: 0.99 }}
                       onClick={() => handleStartCard(subj.id)}
-                      className={`${cardTheme.cardBgClass} rounded-2xl sm:rounded-3xl overflow-hidden border-2 ${cardTheme.borderClass} shadow-md hover:shadow-lg transition-all cursor-pointer flex flex-col group relative p-1.5 sm:p-2`}
+                      className={`${cardTheme.cardBgClass} rounded-2xl overflow-hidden border-2 ${cardTheme.borderClass} shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col group relative p-1.5`}
                     >
-                      {/* Prominent Bright Daylight Subject Image — Generous Visibility Without Overlapping Text */}
-                      <div className="relative h-56 sm:h-64 md:h-72 w-full overflow-hidden rounded-xl sm:rounded-2xl bg-sky-100 z-10 shrink-0">
+                      {/* Compact Prominent Bright Subject Image */}
+                      <div className="relative h-36 sm:h-44 md:h-48 w-full overflow-hidden rounded-xl bg-sky-100 z-10 shrink-0">
                         <SmartCardImage
                           src={subjectImg}
                           alt={subj.name}
                           fallbackLabel={subj.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
 
                         {/* Top Bar: PRELIMS/MAINS Badge & Total MCQ Badge */}
-                        <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-2 z-10">
-                          <span className={`px-3 py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider shadow-md border ${cardTheme.badgeBgClass} flex items-center gap-1.5`}>
+                        <div className="absolute top-2 left-2 right-2 flex items-center justify-between gap-1.5 z-10">
+                          <span className={`px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-wider shadow-sm border ${cardTheme.badgeBgClass} flex items-center gap-1`}>
                             <span>🎯</span>
                             <span>{subj.category === 'mains' ? 'MAINS' : subj.category === 'both' ? 'DUAL' : 'PRELIMS'}</span>
                           </span>
 
-                          <span className="px-3 py-1 rounded-full text-[10px] sm:text-xs font-black shadow-md bg-white/95 text-[#1E1B4B] border flex items-center gap-1.5 tracking-tight shrink-0">
-                            <span className="text-xs">📝</span>
+                          <span className="px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-black shadow-sm bg-white/95 text-[#1E1B4B] border flex items-center gap-1 tracking-tight shrink-0">
+                            <span className="text-[10px]">📝</span>
                             <span className="font-extrabold">{totalMcqsDisplay}</span>
                           </span>
                         </div>
                       </div>
 
-                      {/* Compact Single-Row Bottom Bar Matching Approved Reference Design */}
-                      <div className={`px-2 sm:px-3.5 py-2 min-h-[60px] sm:min-h-[68px] relative z-10 flex flex-row items-center justify-between gap-1.5 sm:gap-2.5 ${cardTheme.bodyBgClass} rounded-b-xl sm:rounded-b-2xl shrink-0`}>
+                      {/* Compact Single-Row Bottom Bar */}
+                      <div className={`px-2 py-1.5 min-h-[52px] relative z-10 flex flex-row items-center justify-between gap-2 ${cardTheme.bodyBgClass} rounded-b-xl shrink-0`}>
                         <div className="min-w-0 flex-1">
-                          <div className={`h-1 sm:h-1.5 w-8 sm:w-10 rounded-full bg-gradient-to-r ${cardTheme.accentBarClass} mb-1`} />
-                          <h4 className="text-[11px] sm:text-[13px] font-black text-[#1E1B4B] leading-tight line-clamp-2">
+                          <div className={`h-1 w-8 rounded-full bg-gradient-to-r ${cardTheme.accentBarClass} mb-0.5`} />
+                          <h4 className="text-[11px] sm:text-xs font-black text-[#1E1B4B] leading-snug line-clamp-2">
                             {subj.name}
                           </h4>
                         </div>
@@ -628,7 +628,7 @@ export default function StudentHome({
                             { type: 'units', count: units.length, label: 'Units' },
                             { type: 'topics', count: totalTopics, label: 'Topics' },
                             { type: 'sets', count: subjStats.setsCount, label: 'Sets' },
-                            { type: 'mcqs', count: subjStats.mcqsCount, label: "MCQ's" },
+                            { type: 'mcqs', count: subjStats.mcqsCount, label: "MCQs" },
                           ]}
                         />
                       </div>
@@ -1013,48 +1013,47 @@ export default function StudentHome({
               ) : (
                 /* Inside Prelims or Mains View - Display Header & Filtered Subject Cards */
                 <div className="space-y-4 pt-1">
-                  {/* Category Section Bar with Back Button */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-xs">
-                    <div className="flex items-center gap-3">
+                  {/* Category Selection Bar with Back Button - Mobile Compact & Responsive */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 bg-white p-2.5 sm:p-3.5 rounded-2xl border border-slate-200 shadow-2xs">
+                    <div className="flex items-center gap-2.5 min-w-0">
                       <button
                         onClick={() => setSubjectFilter('all')}
-                        className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs shrink-0"
+                        className="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-800 rounded-xl text-xs font-black transition-all flex items-center gap-1 cursor-pointer shadow-2xs shrink-0"
+                        title="Back to Dashboard"
                       >
-                        <ArrowLeft className="h-4 w-4" />
+                        <ArrowLeft className="h-3.5 w-3.5" />
                         <span>Home</span>
                       </button>
-                      <div>
-                        <h4 className="text-sm sm:text-base font-black text-slate-900 flex items-center gap-2">
+                      <div className="min-w-0">
+                        <h4 className="text-xs sm:text-sm font-black text-slate-900 flex items-center gap-1.5 truncate">
                           <span>{subjectFilter === 'prelims' ? '🎯' : '📖'}</span>
-                          <span>{examPrefix} {String(subjectFilter).toUpperCase()} Subjects</span>
+                          <span className="truncate">{examPrefix} {String(subjectFilter).toUpperCase()} Arena</span>
                         </h4>
-                        <p className="text-[11px] sm:text-xs text-slate-500 font-medium">
-                          Showing {filteredSubjects.length} subjects for {subjectFilter === 'prelims' ? 'Prelims Examination' : 'Mains Examination'}
+                        <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium truncate">
+                          {filteredSubjects.length} Subjects available for practice
                         </p>
                       </div>
                     </div>
 
-                    {/* Filter Launch Pills */}
-                    <div className="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl self-start sm:self-auto">
+                    {/* TWO SELECTION OPTIONS ONLY: SUBJECTS & CURRENT AFFAIRS */}
+                    <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl self-stretch sm:self-auto shrink-0">
                       <button
-                        onClick={() => setSubjectFilter('prelims')}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-black transition-all cursor-pointer ${
-                          subjectFilter === 'prelims' 
-                            ? 'bg-gradient-to-r from-orange-500 to-amber-600 text-white shadow-xs' 
-                            : 'bg-transparent text-slate-600 hover:text-slate-900'
-                        }`}
+                        type="button"
+                        onClick={() => {
+                          if (subjectFilter !== 'prelims') setSubjectFilter('prelims');
+                        }}
+                        className="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-black transition-all cursor-pointer bg-gradient-to-r from-orange-500 to-amber-600 text-white shadow-2xs flex items-center justify-center gap-1.5"
                       >
-                        Prelims ({syllabusList.filter(s => s && (s.category === 'prelims' || s.category === 'both' || !s.category)).length})
+                        <BookOpen className="w-3.5 h-3.5" />
+                        <span>Subjects ({filteredSubjects.length})</span>
                       </button>
                       <button
-                        onClick={() => setSubjectFilter('mains')}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-black transition-all cursor-pointer ${
-                          subjectFilter === 'mains' 
-                            ? 'bg-gradient-to-r from-amber-600 to-orange-700 text-white shadow-xs' 
-                            : 'bg-transparent text-slate-600 hover:text-slate-900'
-                        }`}
+                        type="button"
+                        onClick={onNavigateToCurrentAffairs}
+                        className="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-black transition-all cursor-pointer bg-transparent text-slate-700 hover:text-slate-900 hover:bg-slate-200/70 flex items-center justify-center gap-1.5"
                       >
-                        Mains ({syllabusList.filter(s => s && (s.category === 'mains' || s.category === 'both')).length})
+                        <Newspaper className="w-3.5 h-3.5 text-rose-600" />
+                        <span>Current Affairs</span>
                       </button>
                     </div>
                   </div>

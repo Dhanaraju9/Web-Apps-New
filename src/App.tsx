@@ -17,18 +17,19 @@ import MockTestsList from './components/MockTestsList';
 import MockTestGeneratorModal from './components/MockTestGeneratorModal';
 import MockTestRunnerModal from './components/MockTestRunnerModal';
 import { 
-  fetchMockTestsFromFirestore, 
-  fetchMockTestAttemptsFromFirestore, 
-  deleteMockTestFromFirestore,
-  fetchBookmarksFromFirestore,
   AUTHORIZED_ADMIN_EMAIL,
   subscribeToAuthChanges,
   logoutUser,
-  loginWithEmailPassword,
-  syncUserProfileToFirestore,
-  syncAppSyllabusToFirestore,
-  fetchAppSyllabusFromFirestore
-} from './lib/firebase';
+  loginWithEmailPassword
+} from './lib/supabase';
+import {
+  fetchMockTestsFromSupabase as fetchMockTestsFromFirestore,
+  fetchMockTestAttemptsFromSupabase as fetchMockTestAttemptsFromFirestore,
+  fetchBookmarksFromSupabase as fetchBookmarksFromFirestore,
+  syncUserProfileToSupabase as syncUserProfileToFirestore,
+  syncAppToSupabase
+} from './services/supabaseService';
+import { deleteLocalMockTest as deleteMockTestFromFirestore } from './services/mockTestService';
 import { fetchBookmarks } from './services/bookmarkService';
 import { BookmarksDashboard } from './components/BookmarksDashboard';
 import { BookmarkItem, MockTest, MockTestAttempt } from './types';
@@ -568,12 +569,12 @@ export default function App() {
         console.warn('Server save non-200 status, cached locally');
       }
 
-      // If syllabus was modified, also sync with Firestore appSyllabus
+      // If syllabus was modified, also sync with Supabase apps
       if (isAdminLoggedIn && newState.apps) {
         const currentApp = newState.apps.find(a => a.id === activeAppId);
         if (currentApp && currentApp.syllabus) {
-          syncAppSyllabusToFirestore(activeAppId, currentApp.syllabus).catch(e => {
-            console.warn('Firestore syllabus sync note:', e);
+          syncAppToSupabase(currentApp).catch(e => {
+            console.warn('Supabase app syllabus sync note:', e);
           });
         }
       }
@@ -1215,7 +1216,7 @@ export default function App() {
               onClick={() => setIsSupportModalOpen(true)}
               className="hover:text-blue-600 underline font-bold cursor-pointer transition-colors text-blue-900"
             >
-              Help & Support Center
+              Help & Support
             </button>
             <span>•</span>
             <button

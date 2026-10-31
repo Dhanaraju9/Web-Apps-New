@@ -184,32 +184,11 @@ export default function SubscriptionPlansModal({
 
   const activeLandmark = AP_LANDMARKS[currentSlideIndex];
 
-  // Default curated plans fallback (preserving ₹99 Offline Subscription + all existing plans across all apps)
+  // Default curated plans fallback across all apps
   const fallbackPackages: SubscriptionPackage[] = useMemo(() => {
     const targetAppId = activeApp?.id || 'andhra-pradesh-appsc-group-2-en';
     const appTitle = activeApp?.name || 'Exam Preparation';
     return [
-      {
-        id: 'sub-offline-99',
-        appId: targetAppId,
-        name: 'Offline Practice Pack',
-        description: `Offline MCQ Practice & Rapid Revision Pack for ${appTitle}`,
-        price: 99,
-        originalPrice: 299,
-        currencySymbol: '₹',
-        billingCycle: 'quarterly',
-        duration: '90 Days',
-        features: [
-          'Offline Practice Sets & Saved Bookmarks',
-          'Downloadable Revision Notes & PDFs',
-          'Topic-Wise High-Yield MCQ Banks',
-          'Detailed Answers & Explanations',
-          'Ad-Free Offline Study Mode'
-        ],
-        status: 'active',
-        startDate: '2026-01-01',
-        isPopular: false
-      },
       {
         id: 'sub-1',
         appId: targetAppId,
@@ -286,8 +265,8 @@ export default function SubscriptionPlansModal({
         features: [
           '1 Full Year Unlimited Access to All Modules',
           'All Prelims + Mains + Mock Tests Unlocked',
-          'Downloadable Revision PDFs & Economic Survey',
-          '100% Ad-Free + Offline Bookmark Sync',
+          'Digital Revision PDFs & Economic Survey',
+          '100% Ad-Free + Cloud Bookmark Sync',
           '1-on-1 Strategy & Priority Support'
         ],
         status: 'active',
@@ -297,7 +276,7 @@ export default function SubscriptionPlansModal({
     ];
   }, [activeApp?.id, activeApp?.name]);
 
-  // Real subscription plans received from database / props, merged with ₹99 Offline Pack & fallbacks
+  // Real subscription plans received from database / props
   const displayPlans = useMemo(() => {
     const activeAppId = activeApp?.id;
     const relevantProps = (subscriptions || []).filter(
@@ -305,15 +284,13 @@ export default function SubscriptionPlansModal({
         pkg &&
         pkg.status !== 'disabled' &&
         pkg.id !== 'sub-24h' &&
+        pkg.id !== 'sub-offline-99' &&
+        pkg.price !== 99 &&
+        !pkg.name?.toLowerCase().includes('offline') &&
         (!pkg.appId || pkg.appId === 'all' || pkg.appId === activeAppId || pkg.appId === 'andhra-pradesh-appsc-group-2-en')
     );
 
     const baseList = relevantProps.length > 0 ? [...relevantProps] : [...fallbackPackages];
-
-    // Ensure ₹99 Offline Practice Pack is always preserved and available
-    if (!baseList.some((p) => p.id === 'sub-offline-99' || p.price === 99)) {
-      baseList.unshift(fallbackPackages[0]);
-    }
 
     const LUXURY_PLAN_PALETTES = [
       {
@@ -425,14 +402,12 @@ export default function SubscriptionPlansModal({
         ? LUXURY_PLAN_PALETTES[4] // Royal Champagne (#FFF1CC)
         : LUXURY_PLAN_PALETTES[idx % LUXURY_PLAN_PALETTES.length];
 
-      const isOffline99 = pkg.id === 'sub-offline-99' || pkg.price === 99;
-
       return {
         id: pkg.id,
         billingCycle: pkg.billingCycle || 'monthly',
         durationKey: pkg.duration ? pkg.duration : pkg.billingCycle || 'Package',
         title: pkg.name,
-        subtitle: isOffline99 ? 'Offline & Revision Special' : pkg.isPopular ? 'Most Popular' : 'Premium Package',
+        subtitle: pkg.isPopular ? 'Most Popular' : 'Premium Package',
         iconType,
         price: pkg.price,
         originalPrice: pkg.originalPrice || pkg.price,

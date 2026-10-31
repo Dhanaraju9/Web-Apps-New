@@ -144,7 +144,7 @@ const defaultCuratedPosters: any[] = [
     id: 'poster-premium-scholarship-2026',
     appIds: ['all', 'andhra-pradesh-appsc-group-2-en'],
     title: 'All-Access Premium Pass — 50% Early Bird Discount',
-    subtitle: 'Unlock unlimited custom mock test generation, offline PDF notes, and priority test series.',
+    subtitle: 'Unlock unlimited custom mock test generation, high-yield digital notes, and priority test series.',
     badge: '50% OFF',
     imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80',
     targetType: 'subscription',
@@ -189,25 +189,6 @@ const defaultCuratedSubscriptions: any[] = [
       'All Practice Questions & Sets',
       'Detailed Explanations & Notes',
       'Mock Tests & Performance Analytics'
-    ]
-  },
-  {
-    id: 'sub-offline-99',
-    appId: 'all',
-    name: 'Offline Practice Pack',
-    price: 99,
-    originalPrice: 199,
-    billingCycle: '1 Month',
-    durationDays: 30,
-    isPopular: true,
-    currency: 'INR',
-    currencySymbol: '₹',
-    status: 'active',
-    features: [
-      'Offline Practice MCQs & Saved Sets',
-      'Downloadable Revision Notes & PDFs',
-      'Full Subject & Topic Wise Practice',
-      'Detailed Solutions Without Internet'
     ]
   },
   {
@@ -317,7 +298,6 @@ function getPlanFromDb(planId: string, appId?: string, reqBody?: any) {
   if (!plan) {
     const defaultPlans: Record<string, any> = {
       'sub-24h': { id: 'sub-24h', name: '24 Hours Access', price: 49, originalPrice: 99, currency: 'INR', currencySymbol: '₹', durationHours: 24, durationDays: 1, billingCycle: '24 Hours' },
-      'sub-offline-99': { id: 'sub-offline-99', name: 'Offline Practice Pack', price: 99, originalPrice: 199, currency: 'INR', currencySymbol: '₹', durationDays: 30, billingCycle: '1 Month' },
       'sub-1': { id: 'sub-1', name: '1 Month Starter', price: 199, originalPrice: 299, currency: 'INR', currencySymbol: '₹', durationDays: 30, billingCycle: '1 Month' },
       'sub-2': { id: 'sub-2', name: '3 Months Focused', price: 499, originalPrice: 699, currency: 'INR', currencySymbol: '₹', durationDays: 90, billingCycle: '3 Months' },
       'sub-3': { id: 'sub-3', name: '6 Months Popular', price: 799, originalPrice: 999, currency: 'INR', currencySymbol: '₹', durationDays: 180, billingCycle: '6 Months' },
@@ -381,15 +361,16 @@ function readDb() {
     // Always sync subscriptions & core models, auto-seeding default plans if empty
     data.subscriptions = Array.isArray(data.subscriptions) ? data.subscriptions : [];
     let needsDbSave = false;
+    const originalSubCount = data.subscriptions.length;
+    data.subscriptions = data.subscriptions.filter(
+      (s: any) => s && s.id !== 'sub-offline-99' && s.price !== 99 && !s.name?.toLowerCase().includes('offline')
+    );
+    if (data.subscriptions.length !== originalSubCount) {
+      needsDbSave = true;
+    }
     if (data.subscriptions.length === 0) {
       data.subscriptions = [...defaultCuratedSubscriptions];
       needsDbSave = true;
-    } else if (!data.subscriptions.some((s: any) => s.id === 'sub-offline-99' || s.price === 99)) {
-      const offlinePlan = defaultCuratedSubscriptions.find((s: any) => s.id === 'sub-offline-99');
-      if (offlinePlan) {
-        data.subscriptions.splice(1, 0, offlinePlan);
-        needsDbSave = true;
-      }
     }
     data.users = data.users || [];
     data.orders = data.orders || [];
@@ -595,7 +576,7 @@ async function processOtpDeliveryJob(requestId: string, plainOtp: string) {
       const formBody = new URLSearchParams();
       formBody.append('To', record.phoneNumber);
       formBody.append('From', process.env.TWILIO_PHONE_NUMBER.trim());
-      formBody.append('Body', `Your APPSC Group 2 verification code is ${plainOtp}. Valid for 5 minutes.`);
+      formBody.append('Body', `Your APPSC GROUP 2 verification code is ${plainOtp}. Valid for 5 minutes.`);
 
       const twilioResp = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${twilioSid}/Messages.json`, {
         method: 'POST',
@@ -759,6 +740,44 @@ app.post("/api/otp/send", (req, res) => {
   const formattedPhone = cleanDigits.length === 10 ? `+91${cleanDigits}` : `+${cleanDigits}`;
   const maskedPhone = maskPhoneNumber(formattedPhone);
 
+  const isDev = process.env.NODE_ENV !== 'production';
+
+  // Demo Login Guard: strictly active in development/demo environment only
+  if (isDev && cleanDigits === '8500505768') {
+    const plainOtp = '123456';
+    const otpHash = hashOtp(plainOtp);
+    const requestId = `req_demo_${Date.now()}`;
+    const newRecord: OtpRecord = {
+      requestId,
+      phoneNumber: '+918500505768',
+      maskedPhone: '+91 85005****68',
+      otpHash,
+      channel: ['sms', 'voice', 'whatsapp', 'email'].includes(channel) ? channel : 'sms',
+      createdAt: Date.now(),
+      expiresAt: Date.now() + 15 * 60 * 1000,
+      attempts: 0,
+      resendCount: 0,
+      status: 'provider_accepted',
+      primaryProvider: 'DemoSimulator',
+      secondaryProvider: null,
+      logs: [],
+      ipAddress: clientIp,
+    };
+    otpStore.set('+918500505768', newRecord);
+    requestIdIndex.set(requestId, '+918500505768');
+    return res.status(200).json({
+      success: true,
+      requestId,
+      status: 'provider_accepted',
+      message: 'Demo OTP 123456 generated (Demo Login Only - Dev Environment).',
+      maskedPhone: '+91 85005****68',
+      channel,
+      expiresInSeconds: 900,
+      resendAvailableInSeconds: 0,
+      logs: [],
+    });
+  }
+
   // Rate Limiting Check (Phone: max 3 per 10m, IP: max 5 per 10m)
   const now = Date.now();
   const phoneRate = otpRateLimitPhone.get(formattedPhone) || { count: 0, resetAt: now + 10 * 60 * 1000 };
@@ -888,6 +907,34 @@ app.post("/api/otp/verify", (req, res) => {
       phone = foundPhone;
       record = otpStore.get(phone);
     }
+  }
+
+  const isDev = process.env.NODE_ENV !== 'production';
+
+  // Demo Login verification in development environment only
+  if (isDev && (phone === '+918500505768' || phone === '8500505768') && String(otpCode || '').trim() === '123456') {
+    const db = readDb();
+    let user = db.users?.find((u: any) => u.phoneNumber === '+918500505768' || u.mobile === '+918500505768');
+    if (!user) {
+      user = {
+        uid: 'usr_demo_8500505768',
+        phoneNumber: '+918500505768',
+        mobile: '+918500505768',
+        displayName: 'Demo Aspirant (APPSC GROUP 2)',
+        email: '8500505768@aspirant.app',
+        createdAt: new Date().toISOString(),
+        appId: 'andhra-pradesh-appsc-group-2-en',
+      };
+      db.users = db.users || [];
+      db.users.push(user);
+      writeDb(db);
+    }
+    return res.json({
+      success: true,
+      message: 'Demo login verified successfully (Demo Login Only).',
+      user,
+      logs: [],
+    });
   }
 
   if (!record) {
@@ -1201,7 +1248,7 @@ const createOrderHandler = async (req: express.Request, res: express.Response) =
       userEmail: userEmail || "",
       userName: userName || "Aspirant",
       userPhone: userPhone || "",
-      planId: plan?.id || planId || "sub-offline-99",
+      planId: plan?.id || planId || "sub-1",
       planName: plan?.name || "Premium Plan",
       razorpayOrderId,
       isLiveGatewayOrder,
@@ -1369,12 +1416,12 @@ app.post("/api/razorpay/verify-payment", (req, res) => {
 
     // Locate the server-created order record to enforce server-verified price, planId, and appId
     const matchedOrder = db.orders.find((o: any) => o.razorpayOrderId === razorpay_order_id);
-    const resolvedPlanId = matchedOrder?.planId || planId || 'sub-offline-99';
+    const resolvedPlanId = matchedOrder?.planId || planId || 'sub-1';
     const resolvedAppId = matchedOrder?.appId || appId || "andhra-pradesh-appsc-group-2-en";
     const resolvedAppName = matchedOrder?.appName || appName || "APPSC Group 2";
     const resolvedMethod = paymentMethod || method || "UPI";
 
-    const plan = getPlanFromDb(resolvedPlanId, resolvedAppId, req.body) || getPlanFromDb('sub-offline-99', resolvedAppId);
+    const plan = getPlanFromDb(resolvedPlanId, resolvedAppId, req.body) || getPlanFromDb('sub-1', resolvedAppId);
     const verifiedAmount = matchedOrder?.amount ?? (Number(req.body.amount) > 0 ? Number(req.body.amount) : plan.price);
     const currency = (matchedOrder?.currency || plan.currency || req.body.currency || 'INR').toUpperCase();
     const currencySymbol = matchedOrder?.currencySymbol || plan.currencySymbol || (currency === 'USD' ? '$' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '₹');

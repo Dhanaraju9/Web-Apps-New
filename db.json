@@ -116,7 +116,7 @@
     },
     {
       "id": "andhra-pradesh-appsc-group-2-en",
-      "name": "APPSC Group 2",
+      "name": "APPSC GROUP 2",
       "examCategory": "State PSC",
       "mediums": [
         "EM"
@@ -13521,1208 +13521,7 @@
       "syllabus": []
     }
   ],
-  "questions": [
-    {
-      "id": "q-json-1788852280294-0-q1a4g",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్‌ను ఏ సంవత్సరంలో నియమించారు?",
-      "options": {
-        "A": "1948",
-        "B": "1950",
-        "C": "1952",
-        "D": "1956"
-      },
-      "correctOption": "C",
-      "explanation": "సరైన సమాధానం: 1952. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280295-1-90a7v",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్ అధికారిక పేరు ఏమిటి?",
-      "options": {
-        "A": "Primary Education Commission",
-        "B": "Secondary Education Commission",
-        "C": "University Education Commission",
-        "D": "Education Planning Commission"
-      },
-      "correctOption": "B",
-      "explanation": "సరైన సమాధానం: Secondary Education Commission. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280301-2-5nzk1",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్ అధ్యక్షుడు ఎవరు?",
-      "options": {
-        "A": "ఎస్. రాధాకృష్ణన్",
-        "B": "డి.ఎస్. కొఠారి",
-        "C": "ఎ. లక్ష్మణస్వామి ముదలియార్",
-        "D": "జాకిర్ హుస్సేన్"
-      },
-      "correctOption": "C",
-      "explanation": "సరైన సమాధానం: ఎ. లక్ష్మణస్వామి ముదలియార్. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280301-3-2mgbg",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్ నివేదిక ఏ సంవత్సరంలో సమర్పించబడింది?",
-      "options": {
-        "A": "1951",
-        "B": "1952",
-        "C": "1953",
-        "D": "1954"
-      },
-      "correctOption": "C",
-      "explanation": "సరైన సమాధానం: 1953. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280301-4-60e31",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ ప్రధానంగా ఏ విద్యా స్థాయిని పరిశీలించింది?",
-      "options": {
-        "A": "ప్రాథమిక",
-        "B": "మాధ్యమిక",
-        "C": "విశ్వవిద్యాలయ",
-        "D": "వయోజన"
-      },
-      "correctOption": "B",
-      "explanation": "సరైన సమాధానం: మాధ్యమిక. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280301-5-lzceg",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్ నియామకానికి ప్రధాన కారణం ఏమిటి?",
-      "options": {
-        "A": "మాధ్యమిక విద్యను సమీక్షించడం",
-        "B": "విశ్వవిద్యాలయాలను విలీనం చేయడం",
-        "C": "ప్రాథమిక విద్యను రద్దు చేయడం",
-        "D": "వయోజన విద్యను మాత్రమే విస్తరించడం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: మాధ్యమిక విద్యను సమీక్షించడం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280302-6-kjshs",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ దృష్టిలో మాధ్యమిక విద్య యొక్క ముఖ్య లక్ష్యం ఏది?",
-      "options": {
-        "A": "కేవలం పరీక్షలు",
-        "B": "సమగ్ర వ్యక్తిత్వ వికాసం",
-        "C": "కేవలం ఉద్యోగం",
-        "D": "కేవలం ఉన్నత విద్య"
-      },
-      "correctOption": "B",
-      "explanation": "సరైన సమాధానం: సమగ్ర వ్యక్తిత్వ వికాసం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280302-7-9moeh",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ ఏ పాఠశాలల ఏర్పాటును ప్రతిపాదించింది?",
-      "options": {
-        "A": "కేవలం సైనిక పాఠశాలలు",
-        "B": "బహుళ ప్రయోజన పాఠశాలలు",
-        "C": "కేవలం వసతి పాఠశాలలు",
-        "D": "కేవలం మత పాఠశాలలు"
-      },
-      "correctOption": "B",
-      "explanation": "సరైన సమాధానం: బహుళ ప్రయోజన పాఠశాలలు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280302-8-8r7x0",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "Multipurpose School భావనకు ఆధారం ఏమిటి?",
-      "options": {
-        "A": "అందరికీ ఒకే వృత్తి",
-        "B": "విద్యార్థుల భిన్న ఆసక్తులు, సామర్థ్యాలు",
-        "C": "కేవలం పరీక్షా మార్కులు",
-        "D": "కేవలం సాహిత్యం"
-      },
-      "correctOption": "B",
-      "explanation": "సరైన సమాధానం: విద్యార్థుల భిన్న ఆసక్తులు, సామర్థ్యాలు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280302-9-c1rmv",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ ఏ విద్యను ప్రోత్సహించింది?",
-      "options": {
-        "A": "కేవలం మత విద్య",
-        "B": "వృత్తి మరియు సాంకేతిక విద్య",
-        "C": "కేవలం సాహిత్య విద్య",
-        "D": "కేవలం సైనిక విద్య"
-      },
-      "correctOption": "B",
-      "explanation": "సరైన సమాధానం: వృత్తి మరియు సాంకేతిక విద్య. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280302-10-w051h",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "వృత్తి విద్యను ప్రోత్సహించడానికి ప్రధాన కారణం ఏమిటి?",
-      "options": {
-        "A": "ఉపాధి అవసరాలతో విద్యను అనుసంధానించడం",
-        "B": "పరీక్షలను రద్దు చేయడం",
-        "C": "పాఠశాలలను తగ్గించడం",
-        "D": "కేవలం వినోదం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: ఉపాధి అవసరాలతో విద్యను అనుసంధానించడం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280302-11-ywbzp",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "విద్యార్థి వృత్తి ఎంపికలో ఏవి పరిగణించాలి?",
-      "options": {
-        "A": "తల్లిదండ్రుల వృత్తి మాత్రమే",
-        "B": "ఆసక్తులు మరియు సామర్థ్యాలు",
-        "C": "పాఠశాల పేరు",
-        "D": "స్నేహితుల ఎంపిక"
-      },
-      "correctOption": "B",
-      "explanation": "సరైన సమాధానం: ఆసక్తులు మరియు సామర్థ్యాలు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280302-12-pt23d",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "Guidance and Counselling యొక్క ముఖ్య ప్రయోజనం ఏమిటి?",
-      "options": {
-        "A": "విద్యా మరియు వృత్తి మార్గదర్శకత్వం",
-        "B": "పరీక్షల రద్దు",
-        "C": "పాఠశాల నిర్మాణం",
-        "D": "క్రీడా నిర్వహణ మాత్రమే"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: విద్యా మరియు వృత్తి మార్గదర్శకత్వం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280302-13-mqu0e",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ పాఠ్యాంశాల్లో ఏ లక్షణాన్ని కోరుకుంది?",
-      "options": {
-        "A": "అందరికీ ఒకే మార్గం",
-        "B": "వైవిధ్యం",
-        "C": "కేవలం కంఠస్థం",
-        "D": "కేవలం పరీక్షా ప్రశ్నలు"
-      },
-      "correctOption": "B",
-      "explanation": "సరైన సమాధానం: వైవిధ్యం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280302-14-d7fhi",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "పాఠ్యాంశ వైవిధ్యానికి ప్రధాన కారణం ఏమిటి?",
-      "options": {
-        "A": "వ్యక్తిగత భేదాలు",
-        "B": "పాఠశాల భవనం",
-        "C": "పరీక్షల సంఖ్య",
-        "D": "ఉపాధ్యాయుల వయస్సు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: వ్యక్తిగత భేదాలు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280302-15-w06ke",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ ఏ విధమైన అభ్యాసాన్ని ప్రోత్సహించింది?",
-      "options": {
-        "A": "కేవలం కంఠస్థం",
-        "B": "కార్యాచరణ మరియు ప్రయోగాత్మక అభ్యాసం",
-        "C": "కేవలం ఉపన్యాసం",
-        "D": "కేవలం పుస్తక పఠనం"
-      },
-      "correctOption": "B",
-      "explanation": "సరైన సమాధానం: కార్యాచరణ మరియు ప్రయోగాత్మక అభ్యాసం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280302-16-7f0ko",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "Co-curricular Activities ప్రధానంగా దేనికి ఉపయోగపడతాయి?",
-      "options": {
-        "A": "సమగ్ర వ్యక్తిత్వ వికాసం",
-        "B": "కేవలం మార్కులు",
-        "C": "కేవలం హాజరు",
-        "D": "పాఠశాల సమయం తగ్గించడం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: సమగ్ర వ్యక్తిత్వ వికాసం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-17-wi3am",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ ఉపాధ్యాయుని పాత్రను ఎలా చూశింది?",
-      "options": {
-        "A": "కేవలం పరీక్షకుడు",
-        "B": "మార్గదర్శకుడు",
-        "C": "కేవలం క్లర్క్",
-        "D": "కేవలం పరిపాలకుడు"
-      },
-      "correctOption": "B",
-      "explanation": "సరైన సమాధానం: మార్గదర్శకుడు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-18-90zuc",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ ఉపాధ్యాయ శిక్షణకు ఎందుకు ప్రాధాన్యత ఇచ్చింది?",
-      "options": {
-        "A": "బోధనా నైపుణ్యాల మెరుగుదలకు",
-        "B": "పాఠశాలలు మూసివేయడానికి",
-        "C": "పరీక్షలు తగ్గించడానికి",
-        "D": "క్రీడల కోసం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: బోధనా నైపుణ్యాల మెరుగుదలకు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-19-j452q",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ విద్యలో ప్రజాస్వామ్య లక్ష్యంగా దేనిని గుర్తించింది?",
-      "options": {
-        "A": "బాధ్యతాయుత పౌరసత్వం",
-        "B": "వ్యక్తిగత సంపద",
-        "C": "కేవలం పోటీ",
-        "D": "కేవలం కంఠస్థం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: బాధ్యతాయుత పౌరసత్వం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-20-ug8up",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ విద్యార్థుల్లో ఏ ఆలోచనా సామర్థ్యాన్ని కోరుకుంది?",
-      "options": {
-        "A": "కేవలం జ్ఞాపకశక్తి",
-        "B": "విమర్శనాత్మక ఆలోచన",
-        "C": "కేవలం వేగంగా రాయడం",
-        "D": "కేవలం కంఠస్థం"
-      },
-      "correctOption": "B",
-      "explanation": "సరైన సమాధానం: విమర్శనాత్మక ఆలోచన. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-21-7ugyh",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ నిర్ణయ సామర్థ్యాన్ని ఎందుకు ప్రోత్సహించింది?",
-      "options": {
-        "A": "జీవిత సమస్యలను సమర్థంగా ఎదుర్కోవడానికి",
-        "B": "కేవలం పరీక్షల కోసం",
-        "C": "కేవలం హాజరు కోసం",
-        "D": "కేవలం క్రీడల కోసం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: జీవిత సమస్యలను సమర్థంగా ఎదుర్కోవడానికి. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-22-r81y0",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "మాధ్యమిక విద్యను కమిషన్ ఏ దిశలో అనుసంధానించాలని కోరింది?",
-      "options": {
-        "A": "వ్యక్తి, సమాజం, దేశ అవసరాలతో",
-        "B": "కేవలం పాఠ్యపుస్తకాలతో",
-        "C": "కేవలం విశ్వవిద్యాలయాలతో",
-        "D": "కేవలం పరీక్షలతో"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: వ్యక్తి, సమాజం, దేశ అవసరాలతో. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-23-5ehvl",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ శారీరక విద్యకు ప్రాధాన్యత ఇవ్వడానికి కారణం?",
-      "options": {
-        "A": "ఆరోగ్యం మరియు వ్యక్తిత్వ వికాసం",
-        "B": "కేవలం వినోదం",
-        "C": "కేవలం పోటీ",
-        "D": "పరీక్షలు రద్దు చేయడం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: ఆరోగ్యం మరియు వ్యక్తిత్వ వికాసం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-24-w8sfv",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ఆరోగ్య విద్యను కమిషన్ ఎందుకు ప్రోత్సహించింది?",
-      "options": {
-        "A": "ఆరోగ్యకరమైన జీవన అలవాట్ల కోసం",
-        "B": "కేవలం మార్కుల కోసం",
-        "C": "కేవలం క్రీడల కోసం",
-        "D": "కేవలం హాజరు కోసం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: ఆరోగ్యకరమైన జీవన అలవాట్ల కోసం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-25-dg8z6",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "నైతిక విద్య యొక్క లక్ష్యం ఏమిటి?",
-      "options": {
-        "A": "బాధ్యతాయుత వ్యక్తిత్వం",
-        "B": "కేవలం ఉద్యోగం",
-        "C": "కేవలం మార్కులు",
-        "D": "కేవలం క్రీడలు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: బాధ్యతాయుత వ్యక్తిత్వం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-26-1sy1g",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "సామాజిక విద్య ద్వారా ఏ లక్షణం పెంపొందుతుంది?",
-      "options": {
-        "A": "సహకారం మరియు బాధ్యత",
-        "B": "కేవలం కంఠస్థం",
-        "C": "కేవలం పోటీ",
-        "D": "కేవలం వ్యక్తిగత లాభం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: సహకారం మరియు బాధ్యత. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-27-sp101",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ విద్యార్థుల వ్యక్తిగత భేదాలను ఎందుకు గుర్తించింది?",
-      "options": {
-        "A": "తగిన విద్యా, వృత్తి మార్గాలను ఎంచుకోవడానికి",
-        "B": "అందరికీ ఒకే వృత్తి ఇవ్వడానికి",
-        "C": "పరీక్షలను రద్దు చేయడానికి",
-        "D": "పాఠశాలలను తగ్గించడానికి"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: తగిన విద్యా, వృత్తి మార్గాలను ఎంచుకోవడానికి. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-28-041lk",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "Aptitude అంటే ఈ సందర్భంలో ప్రధానంగా ఏమిటి?",
-      "options": {
-        "A": "సామర్థ్యం లేదా అనుకూలత",
-        "B": "హాజరు",
-        "C": "పరీక్షా భవనం",
-        "D": "పాఠ్యపుస్తకం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: సామర్థ్యం లేదా అనుకూలత. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280303-29-4yr1p",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "Guidance ఏ రెండు ఎంపికలకు ప్రత్యేకంగా సహాయపడుతుంది?",
-      "options": {
-        "A": "విద్యా మరియు వృత్తి ఎంపికలు",
-        "B": "కేవలం క్రీడలు",
-        "C": "కేవలం భోజనం",
-        "D": "కేవలం హాస్టల్"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: విద్యా మరియు వృత్తి ఎంపికలు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-30-eby1t",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "Multipurpose Schoolsలో ముఖ్య ఉద్దేశ్యం ఏది?",
-      "options": {
-        "A": "వివిధ విద్యా మరియు వృత్తి మార్గాలు",
-        "B": "కేవలం ఒకే కోర్సు",
-        "C": "కేవలం సాహిత్యం",
-        "D": "కేవలం క్రీడలు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: వివిధ విద్యా మరియు వృత్తి మార్గాలు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-31-bn5za",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "Vocationalisation భావన ఏమిటి?",
-      "options": {
-        "A": "విద్యను వృత్తి నైపుణ్యాలతో అనుసంధానించడం",
-        "B": "విద్యను రద్దు చేయడం",
-        "C": "కేవలం పరీక్షలు నిర్వహించడం",
-        "D": "కేవలం క్రీడలు బోధించడం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: విద్యను వృత్తి నైపుణ్యాలతో అనుసంధానించడం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-32-ury6i",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "సాంకేతిక విద్యను ప్రోత్సహించడం ద్వారా ఏది సాధించాలనుకుంది?",
-      "options": {
-        "A": "సాంకేతిక నైపుణ్యాల అభివృద్ధి",
-        "B": "కేవలం సాహిత్య అభివృద్ధి",
-        "C": "పరీక్షల తొలగింపు",
-        "D": "పాఠశాలల మూసివేత"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: సాంకేతిక నైపుణ్యాల అభివృద్ధి. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-33-bxosg",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "వ్యవసాయ సంబంధిత విద్యకు ప్రాధాన్యత ఇవ్వడానికి ముఖ్య కారణం?",
-      "options": {
-        "A": "గ్రామీణ మరియు ఆర్థిక అవసరాలు",
-        "B": "కేవలం నగర విద్యార్థులు",
-        "C": "కేవలం పరీక్షలు",
-        "D": "కేవలం క్రీడలు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: గ్రామీణ మరియు ఆర్థిక అవసరాలు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-34-vvc5z",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ పాఠశాల విద్యను కేవలం దేనికి పరిమితం చేయడాన్ని వ్యతిరేకించింది?",
-      "options": {
-        "A": "పరీక్షా విజయానికి",
-        "B": "వ్యక్తిత్వ వికాసానికి",
-        "C": "సామాజిక అభివృద్ధికి",
-        "D": "వృత్తి అవగాహనకు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: పరీక్షా విజయానికి. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-35-wsni9",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "సహపాఠ్య కార్యకలాపాలు ఏ లక్షణాన్ని పెంపొందించగలవు?",
-      "options": {
-        "A": "నాయకత్వం",
-        "B": "కేవలం కంఠస్థం",
-        "C": "కేవలం మార్కులు",
-        "D": "కేవలం హాజరు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: నాయకత్వం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-36-a73u9",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "సమూహ కార్యకలాపాలు ఏ విలువను పెంచుతాయి?",
-      "options": {
-        "A": "సహకారం",
-        "B": "ఒంటరితనం",
-        "C": "కేవలం పోటీ",
-        "D": "కేవలం కంఠస్థం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: సహకారం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-37-72wsb",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ ప్రజాస్వామ్య పౌరసత్వాన్ని ఏ విద్యా లక్ష్యంతో అనుసంధానించింది?",
-      "options": {
-        "A": "సామాజిక బాధ్యత",
-        "B": "కేవలం ఉద్యోగం",
-        "C": "కేవలం పరీక్ష",
-        "D": "కేవలం వినోదం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: సామాజిక బాధ్యత. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-38-shmpb",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్ స్వాతంత్ర్యానంతర భారతదేశంలో ఏ రంగ సంస్కరణకు ఉదాహరణ?",
-      "options": {
-        "A": "మాధ్యమిక విద్య",
-        "B": "కేవలం న్యాయవ్యవస్థ",
-        "C": "కేవలం వ్యవసాయ మార్కెట్",
-        "D": "కేవలం రైల్వేలు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: మాధ్యమిక విద్య. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-39-u7bsf",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్‌కు ముందు ఉన్నత విద్యపై పనిచేసిన కమిషన్ ఏది?",
-      "options": {
-        "A": "రాధాకృష్ణన్ కమిషన్",
-        "B": "కొఠారి కమిషన్",
-        "C": "ముదలియార్ కమిషన్",
-        "D": "సార్జెంట్ కమిషన్"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: రాధాకృష్ణన్ కమిషన్. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-40-itg1y",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "రాధాకృష్ణన్ కమిషన్ ప్రధానంగా ఏ విద్యను పరిశీలించింది?",
-      "options": {
-        "A": "విశ్వవిద్యాలయ విద్య",
-        "B": "మాధ్యమిక విద్య",
-        "C": "ప్రాథమిక విద్య",
-        "D": "వయోజన విద్య"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: విశ్వవిద్యాలయ విద్య. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-41-f21us",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్ తరువాత సమగ్ర విద్యా విధానాన్ని అధ్యయనం చేసిన ప్రముఖ కమిషన్ ఏది?",
-      "options": {
-        "A": "కొఠారి కమిషన్",
-        "B": "రాధాకృష్ణన్ కమిషన్",
-        "C": "ముదలియార్ కమిషన్",
-        "D": "హంటర్ కమిషన్"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: కొఠారి కమిషన్. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-42-174ig",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కొఠారి కమిషన్ కాలం ఏది?",
-      "options": {
-        "A": "1964–66",
-        "B": "1952–53",
-        "C": "1948–49",
-        "D": "1956–57"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: 1964–66. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280304-43-zdo43",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్ కాలానికి సరైన జంట ఏది?",
-      "options": {
-        "A": "1952–53",
-        "B": "1948–49",
-        "C": "1964–66",
-        "D": "1950–51"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: 1952–53. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-44-w7xav",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్‌ను మరే పేరుతో పిలుస్తారు?",
-      "options": {
-        "A": "Secondary Education Commission",
-        "B": "University Education Commission",
-        "C": "Primary Education Commission",
-        "D": "Adult Education Commission"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: Secondary Education Commission. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-45-jiyn0",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ విద్యార్థుల భవిష్యత్ వృత్తికి ఏ అంశాన్ని ముఖ్యంగా పరిగణించింది?",
-      "options": {
-        "A": "ఆసక్తి మరియు సామర్థ్యం",
-        "B": "తల్లిదండ్రుల సంపద",
-        "C": "పాఠశాల భవనం",
-        "D": "స్నేహితుల అభిప్రాయం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: ఆసక్తి మరియు సామర్థ్యం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-46-f4pnl",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "విద్యార్థి-కేంద్రిత దృక్పథానికి సరైన ఉదాహరణ ఏది?",
-      "options": {
-        "A": "విద్యార్థుల అవసరాలకు అనుగుణంగా పాఠ్యాంశాలు",
-        "B": "అందరికీ ఒకే వృత్తి",
-        "C": "కేవలం ఉపాధ్యాయ ఉపన్యాసం",
-        "D": "కేవలం పరీక్షా మార్కులు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: విద్యార్థుల అవసరాలకు అనుగుణంగా పాఠ్యాంశాలు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-47-azbb4",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ ప్రకారం విద్యార్థి వ్యక్తిత్వంలో ఏ విభాగాల సమన్వయం అవసరం?",
-      "options": {
-        "A": "మేధో, శారీరక, సామాజిక, నైతిక",
-        "B": "కేవలం మేధో",
-        "C": "కేవలం శారీరక",
-        "D": "కేవలం పరీక్షా"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: మేధో, శారీరక, సామాజిక, నైతిక. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-48-g1vgt",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ బోధనలో ఏ విధానాన్ని ఎక్కువగా ప్రోత్సహించింది?",
-      "options": {
-        "A": "కార్యాచరణ ఆధారిత విధానం",
-        "B": "కేవలం కంఠస్థం",
-        "C": "కేవలం డిక్టేషన్",
-        "D": "కేవలం పరీక్షలు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: కార్యాచరణ ఆధారిత విధానం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-49-mjbd0",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "వృత్తి విద్య మరియు సాధారణ విద్య మధ్య సంబంధం ఎలా ఉండాలని సూచించింది?",
-      "options": {
-        "A": "సమన్వయం ఉండాలి",
-        "B": "పూర్తిగా వేరు చేయాలి",
-        "C": "వృత్తి విద్యను రద్దు చేయాలి",
-        "D": "సాధారణ విద్యను రద్దు చేయాలి"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: సమన్వయం ఉండాలి. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-50-3x41h",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "మాధ్యమిక విద్యలో curriculum diversification అంటే ఏమిటి?",
-      "options": {
-        "A": "విభిన్న అధ్యయన మార్గాలను అందించడం",
-        "B": "పాఠ్యాంశాలను పూర్తిగా తొలగించడం",
-        "C": "కేవలం ఒక విషయాన్ని బోధించడం",
-        "D": "కేవలం పరీక్షా పుస్తకం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: విభిన్న అధ్యయన మార్గాలను అందించడం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-51-yxavc",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ యొక్క guidance భావన ఏ విద్యార్థి లక్షణాన్ని గుర్తిస్తుంది?",
-      "options": {
-        "A": "వ్యక్తిగత భేదాలు",
-        "B": "అందరూ ఒకేలా ఉంటారు",
-        "C": "కేవలం మార్కులు",
-        "D": "కేవలం వయస్సు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: వ్యక్తిగత భేదాలు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-52-ohvyb",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ ఉపాధ్యాయుని ఏ పాత్రను బలపరిచింది?",
-      "options": {
-        "A": "విద్యార్థి మార్గదర్శకత్వం",
-        "B": "కేవలం శిక్ష విధించడం",
-        "C": "కేవలం పరీక్ష పర్యవేక్షణ",
-        "D": "కేవలం హాజరు నమోదు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: విద్యార్థి మార్గదర్శకత్వం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-53-ctat0",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ఉపాధ్యాయుల సేవా నాణ్యత మెరుగుదల ఎందుకు అవసరం?",
-      "options": {
-        "A": "మెరుగైన బోధన కోసం",
-        "B": "కేవలం జీతాల కోసం",
-        "C": "కేవలం పాఠశాల నిర్మాణం కోసం",
-        "D": "కేవలం క్రీడల కోసం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: మెరుగైన బోధన కోసం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-54-wqxit",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ విద్యలో స్వీయ నియంత్రణను ఎందుకు ప్రోత్సహించింది?",
-      "options": {
-        "A": "బాధ్యతాయుత ప్రవర్తన కోసం",
-        "B": "కేవలం పరీక్షల కోసం",
-        "C": "కేవలం క్రీడల కోసం",
-        "D": "కేవలం హాజరు కోసం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: బాధ్యతాయుత ప్రవర్తన కోసం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-55-grkba",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ విద్యలో సమస్య పరిష్కార సామర్థ్యాన్ని ఎందుకు కోరుకుంది?",
-      "options": {
-        "A": "జీవిత పరిస్థితులను సమర్థంగా ఎదుర్కోవడానికి",
-        "B": "కేవలం పరీక్షలో వేగం కోసం",
-        "C": "కేవలం కంఠస్థం కోసం",
-        "D": "కేవలం క్రీడల కోసం"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: జీవిత పరిస్థితులను సమర్థంగా ఎదుర్కోవడానికి. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280305-56-f780b",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ మాధ్యమిక విద్యను ఏ దశగా భావించింది?",
-      "options": {
-        "A": "జీవితం మరియు భవిష్యత్ బాధ్యతలకు సిద్ధం చేసే దశ",
-        "B": "కేవలం పరీక్షా దశ",
-        "C": "కేవలం విశ్వవిద్యాలయ ప్రవేశ దశ",
-        "D": "కేవలం క్రీడా దశ"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: జీవితం మరియు భవిష్యత్ బాధ్యతలకు సిద్ధం చేసే దశ. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280306-57-myucg",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్ సిఫార్సుల్లో 'diversification' దేనికి సంబంధించినది?",
-      "options": {
-        "A": "పాఠ్యాంశాలు మరియు విద్యా మార్గాల వైవిధ్యం",
-        "B": "పాఠశాల భవనాల రంగులు",
-        "C": "పరీక్షల తేదీలు",
-        "D": "ఉపాధ్యాయుల దుస్తులు"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: పాఠ్యాంశాలు మరియు విద్యా మార్గాల వైవిధ్యం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280306-58-nl4tv",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "ముదలియార్ కమిషన్ సిఫార్సుల్లో 'guidance' ప్రధానంగా ఎవరికి ఉపయోగకరం?",
-      "options": {
-        "A": "విద్యార్థులకు",
-        "B": "కేవలం పాఠశాల భవనాలకు",
-        "C": "కేవలం పరీక్షా బోర్డుకు",
-        "D": "కేవలం గ్రంథాలయానికి"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: విద్యార్థులకు. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    },
-    {
-      "id": "q-json-1788852280306-59-mhf3a",
-      "appId": "andhra-pradesh-appsc-group-2-en",
-      "subjectId": "subj-indian-history",
-      "unitId": "unit-ih-ancient",
-      "topicId": "topic-ih-ancient-civ",
-      "subtopic": "General Practice",
-      "questionText": "కమిషన్ సిఫార్సులలో vocational education ఏ సమస్యకు సమాధానంగా ఉంది?",
-      "options": {
-        "A": "విద్య మరియు ఉపాధి మధ్య సంబంధాన్ని బలోపేతం చేయడం",
-        "B": "కేవలం పరీక్షా ఫలితాలు",
-        "C": "కేవలం పాఠశాల హాజరు",
-        "D": "కేవలం క్రీడా శిక్షణ"
-      },
-      "correctOption": "A",
-      "explanation": "సరైన సమాధానం: విద్య మరియు ఉపాధి మధ్య సంబంధాన్ని బలోపేతం చేయడం. ఈ అంశం ముదలియార్ కమిషన్ (1952–53) యొక్క మాధ్యమిక విద్యా సంస్కరణలతో సంబంధం కలిగి ఉంది.",
-      "importBatchId": "batch-1788852280287",
-      "importFileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "category": "prelims"
-    }
-  ],
+  "questions": [],
   "currentAffairs": [],
   "posters": [
     {
@@ -14805,7 +13604,7 @@
         "tspsc-group-2"
       ],
       "title": "All-Access Premium Pass — 50% Early Bird Discount",
-      "subtitle": "Unlock unlimited custom mock test generation, offline PDF notes, and priority test series.",
+      "subtitle": "Unlock unlimited custom mock test generation, high-yield digital notes, and priority test series.",
       "badge": "50% OFF",
       "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80",
       "targetType": "subscription",
@@ -14835,25 +13634,6 @@
         "All Practice Questions & Sets",
         "Detailed Explanations & Notes",
         "Mock Tests & Performance Analytics"
-      ]
-    },
-    {
-      "id": "sub-offline-99",
-      "appId": "all",
-      "name": "Offline Practice Pack",
-      "price": 99,
-      "originalPrice": 199,
-      "billingCycle": "1 Month",
-      "durationDays": 30,
-      "isPopular": true,
-      "currency": "INR",
-      "currencySymbol": "₹",
-      "status": "active",
-      "features": [
-        "Offline Practice MCQs & Saved Sets",
-        "Downloadable Revision Notes & PDFs",
-        "Full Subject & Topic Wise Practice",
-        "Detailed Solutions Without Internet"
       ]
     },
     {
@@ -14931,17 +13711,42 @@
     }
   ],
   "coupons": [],
-  "purchases": [],
-  "notifications": [],
-  "importBatches": [
+  "purchases": [
     {
-      "id": "batch-1788852280287",
-      "fileName": "mudaliar_commission_1952_53_60_telugu_mcqs.json",
-      "date": "Sep 8, 2026",
-      "count": 60,
-      "appId": "andhra-pradesh-appsc-group-2-en"
+      "id": "purchase-1793412282030",
+      "transactionId": "pay_MVVRD8GL9JSV",
+      "orderId": "order_1793412281421_kyvih2",
+      "appId": "andhra-pradesh-appsc-group-2-en",
+      "appName": "APPSC GROUP 2",
+      "packageName": "24 Hours Access",
+      "planStatus": "active",
+      "amount": 49,
+      "currencySymbol": "₹",
+      "userName": "APPSC Aspirant",
+      "email": "infinitylabs.developer@gmail.com",
+      "mobile": "+918500505768",
+      "date": "31 Oct 2026",
+      "platform": "Web",
+      "paymentStatus": "success",
+      "method": "UPI (PhonePe)",
+      "gstAmount": 9,
+      "expiryDate": "2026-11-01T02:04:42.004Z"
     }
   ],
+  "notifications": [
+    {
+      "id": "notif-1793412292040",
+      "appIds": [
+        "andhra-pradesh-appsc-group-2-en"
+      ],
+      "title": "Purchase Successful! 🎉",
+      "message": "You have successfully subscribed to 24 Hours Access. Welcome to APPSC GROUP 2!",
+      "date": "31 Oct 2026",
+      "type": "purchase",
+      "read": false
+    }
+  ],
+  "importBatches": [],
   "users": [
     {
       "id": "usr_current",
@@ -14953,8 +13758,8 @@
       "isPremium": true,
       "subscriptionExpiresAt": "2026-11-26T06:20:55.289Z",
       "trialUsed": true,
-      "planId": "sub-offline-99",
-      "activePlanName": "Offline Practice Pack"
+      "planId": "sub-1",
+      "activePlanName": "1 Month Starter"
     }
   ],
   "orders": [
@@ -14964,12 +13769,12 @@
       "userEmail": "",
       "userName": "Aspirant",
       "userPhone": "",
-      "planId": "sub-offline-99",
-      "planName": "Offline Practice Pack",
+      "planId": "sub-1",
+      "planName": "1 Month Starter",
       "razorpayOrderId": "order_1793081998473_nvksvm",
       "isLiveGatewayOrder": false,
-      "amount": 99,
-      "amountSubunits": 9900,
+      "amount": 199,
+      "amountSubunits": 19900,
       "currency": "INR",
       "currencySymbol": "₹",
       "status": "paid",
@@ -14995,7 +13800,7 @@
       "razorpayPaymentId": "pay_TEST99OFFLINE",
       "razorpayOrderId": "order_1793081998473_nvksvm",
       "razorpaySignature": "integrated_checkout_verified",
-      "amount": 99,
+      "amount": 199,
       "currency": "INR",
       "currencySymbol": "₹",
       "status": "captured",
@@ -15009,13 +13814,13 @@
       "userId": "usr_current",
       "userEmail": "sobhadhanaraju0@gmail.com",
       "appId": "andhra-pradesh-appsc-group-2-en",
-      "planId": "sub-offline-99",
-      "planName": "Offline Practice Pack",
+      "planId": "sub-1",
+      "planName": "1 Month Starter",
       "startDate": "2026-10-27T06:20:55.289Z",
       "expiryDate": "2026-11-26T06:20:55.289Z",
       "status": "active",
       "source": "razorpay",
-      "amount": 99,
+      "amount": 199,
       "currency": "INR",
       "currencySymbol": "₹",
       "orderId": "order_1793081998473_nvksvm",
@@ -15026,6 +13831,15 @@
   "trials": [],
   "paymentEvents": [],
   "auditLogs": [
+    {
+      "id": "audit-1793412368644",
+      "adminEmail": "admin@infinityexams.internal",
+      "action": "DELETE_BATCH",
+      "targetId": "batch-1788852280287",
+      "targetType": "mcq",
+      "timestamp": "2026-10-31T02:06:08.644Z",
+      "details": "Deleted batch file: mudaliar_commission_1952_53_60_telugu_mcqs.json (60 MCQs)"
+    },
     {
       "id": "log_1792259843058_kms67",
       "adminEmail": "sobhadhanaraju1@gmail.com",
@@ -15043,6 +13857,26 @@
       "targetType": "app",
       "timestamp": "2026-10-17T18:02:42.366Z",
       "details": "Administrator sobhadhanaraju1@gmail.com signed in successfully via Google Authentication."
+    }
+  ],
+  "subscriptionHistory": [
+    {
+      "id": "sub-1793412282030",
+      "planName": "24 Hours Access",
+      "date": "31 Oct 2026",
+      "type": "purchase",
+      "status": "active",
+      "expiryDate": "1 Nov 2026, 07:34 am"
+    }
+  ],
+  "paymentHistory": [
+    {
+      "id": "pay-1793412282030",
+      "date": "31 Oct 2026",
+      "amount": 49,
+      "currencySymbol": "₹",
+      "status": "success",
+      "method": "UPI (PhonePe)"
     }
   ]
 }

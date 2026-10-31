@@ -4,17 +4,11 @@
  */
 
 import {
-  collection,
-  doc,
-  getDocs,
-  setDoc,
-  deleteDoc,
-  query,
-  where,
-  orderBy,
-  limit
-} from 'firebase/firestore';
-import { db } from '../lib/firebase';
+  fetchMockTestsFromSupabase,
+  saveMockTestToSupabase,
+  fetchMockTestAttemptsFromSupabase,
+  saveMockTestAttemptToSupabase
+} from './supabaseService';
 import {
   MockTest,
   MockTestConfig,
@@ -290,66 +284,32 @@ export function deleteLocalMockAttempt(attemptId: string): void {
  */
 export async function fetchMockTestsFromFirestore(appId?: string): Promise<MockTest[]> {
   const localTests = getLocalMockTests();
-
-  if (!db) {
-    return appId ? localTests.filter((t) => t.appId === appId || t.appId === 'all') : localTests;
-  }
-
   try {
-    const colRef = collection(db, 'mockTests');
-    let q;
-    if (appId) {
-      q = query(colRef, where('appId', 'in', [appId, 'all']));
-    } else {
-      q = query(colRef);
-    }
-
-    const snapshot = await getDocs(q);
-    const firestoreTests: MockTest[] = [];
-    snapshot.forEach((docSnap) => {
-      firestoreTests.push({ id: docSnap.id, ...(docSnap.data() as any) } as MockTest);
-    });
-
-
-    // Merge Firestore tests with local custom tests (local custom tests take precedence or blend in)
+    const remote = await fetchMockTestsFromSupabase(appId);
     const combinedMap = new Map<string, MockTest>();
-    firestoreTests.forEach((t) => combinedMap.set(t.id, t));
+    (remote || []).forEach((t: any) => combinedMap.set(t.id, t));
     localTests.forEach((t) => combinedMap.set(t.id, t));
 
     return Array.from(combinedMap.values()).sort(
       (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
   } catch (e) {
-    console.warn('Firestore fetchMockTests failed, serving local tests:', e);
+    console.warn('Supabase fetchMockTests failed, serving local tests:', e);
     return appId ? localTests.filter((t) => t.appId === appId || t.appId === 'all') : localTests;
   }
 }
 
 export async function saveMockTestToFirestore(mockTest: MockTest): Promise<void> {
-  // Always save locally first for instant user feedback
   saveLocalMockTest(mockTest);
-
-  if (!db) return;
-
   try {
-    const docRef = doc(db, 'mockTests', mockTest.id);
-    await setDoc(docRef, mockTest, { merge: true });
+    await saveMockTestToSupabase(mockTest);
   } catch (e) {
-    console.warn('Firestore saveMockTest failed, saved locally:', e);
+    console.warn('Supabase saveMockTest failed, saved locally:', e);
   }
 }
 
 export async function deleteMockTestFromFirestore(testId: string): Promise<void> {
   deleteLocalMockTest(testId);
-
-  if (!db) return;
-
-  try {
-    const docRef = doc(db, 'mockTests', testId);
-    await deleteDoc(docRef);
-  } catch (e) {
-    console.warn('Firestore deleteMockTest failed, deleted locally:', e);
-  }
 }
 
 export async function fetchMockAttemptsFromFirestore(
@@ -357,36 +317,17 @@ export async function fetchMockAttemptsFromFirestore(
   appId?: string
 ): Promise<MockTestAttempt[]> {
   const localAttempts = getLocalMockAttempts();
-
-  if (!db) {
-    return localAttempts.filter(
-      (a) => (!userId || a.userId === userId) && (!appId || a.appId === appId)
-    );
-  }
-
   try {
-    const colRef = collection(db, 'mockTestAttempts');
-    let q = query(colRef);
-
-    if (userId) {
-      q = query(colRef, where('userId', '==', userId));
-    }
-
-    const snapshot = await getDocs(q);
-    const firestoreAttempts: MockTestAttempt[] = [];
-    snapshot.forEach((docSnap) => {
-      firestoreAttempts.push({ id: docSnap.id, ...(docSnap.data() as object) } as MockTestAttempt);
-    });
-
+    const remote = await fetchMockTestAttemptsFromSupabase(userId, appId);
     const combinedMap = new Map<string, MockTestAttempt>();
-    firestoreAttempts.forEach((a) => combinedMap.set(a.id, a));
+    (remote || []).forEach((a: any) => combinedMap.set(a.id, a));
     localAttempts.forEach((a) => combinedMap.set(a.id, a));
 
     return Array.from(combinedMap.values()).sort(
-      (a, b) => new Date(b.startedAt).getTime() - new Date(a.startedAt).getTime()
+      (a, b) => new Date(b.startedAt || b.completedAt || new Date()).getTime() - new Date(a.startedAt || a.completedAt || new Date()).getTime()
     );
   } catch (e) {
-    console.warn('Firestore fetchMockAttempts failed, serving local attempts:', e);
+    console.warn('Supabase fetchMockAttempts failed, serving local attempts:', e);
     return localAttempts.filter(
       (a) => (!userId || a.userId === userId) && (!appId || a.appId === appId)
     );
@@ -395,14 +336,10 @@ export async function fetchMockAttemptsFromFirestore(
 
 export async function saveMockAttemptToFirestore(attempt: MockTestAttempt): Promise<void> {
   saveLocalMockAttempt(attempt);
-
-  if (!db) return;
-
   try {
-    const docRef = doc(db, 'mockTestAttempts', attempt.id);
-    await setDoc(docRef, attempt, { merge: true });
+    await saveMockTestAttemptToSupabase(attempt);
   } catch (e) {
-    console.warn('Firestore saveMockAttempt failed, saved locally:', e);
+    console.warn('Supabase saveMockAttempt failed, saved locally:', e);
   }
 }
 

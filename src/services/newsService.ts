@@ -4,8 +4,7 @@
  */
 
 import { CurrentAffairsItem, AppConfig, NewsEngineSettings, NewsSourceConfig } from '../types';
-import { db } from '../lib/firebase';
-import { collection, getDocs, setDoc, doc, Timestamp } from 'firebase/firestore';
+import { fetchCurrentAffairsFromSupabase, saveCurrentAffairToSupabase } from './supabaseService';
 
 const NEWS_CACHE_KEY = 'aspirant_live_news_cache_v2';
 const NEWS_SETTINGS_KEY = 'aspirant_news_engine_settings_v2';
@@ -365,26 +364,16 @@ export function generateSeedNews(appStateId: string = 'andhra-pradesh'): Current
  */
 export async function fetchLiveNewsFeed(app: AppConfig): Promise<CurrentAffairsItem[]> {
   try {
-    const colRef = collection(db, 'currentAffairs');
-    const snap = await getDocs(colRef);
-    const firestoreItems: CurrentAffairsItem[] = [];
-
-    snap.forEach((docSnap) => {
-      const data = docSnap.data() as CurrentAffairsItem;
-      if (data.status === 'published' || !data.status) {
-        firestoreItems.push({ id: docSnap.id, ...data });
-      }
-    });
-
+    const supabaseItems = await fetchCurrentAffairsFromSupabase(app.id);
     const cached = getCachedNews();
     const seed = generateSeedNews(app.stateId);
 
-    const merged = deduplicateNews([...firestoreItems, ...cached, ...seed]);
+    const merged = deduplicateNews([...(supabaseItems as any[]), ...cached, ...seed]);
     saveCachedNews(merged);
 
     return merged;
   } catch (err) {
-    console.warn('Firestore news fetch fallback to local cache:', err);
+    console.warn('Supabase news fetch fallback to local cache:', err);
     const cached = getCachedNews();
     const seed = generateSeedNews(app.stateId);
     return deduplicateNews([...cached, ...seed]);
